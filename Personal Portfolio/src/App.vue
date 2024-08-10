@@ -12,10 +12,6 @@ import { RouterLink, RouterView } from 'vue-router'
     </nav>
   </header>
   <main>
-    <div class="welcome-message">
-      <h1> Welcome to my portfolio </h1>
-    </div>
-
     <RouterView />
   </main>
 </template>
@@ -30,19 +26,9 @@ nav {
   color: var(--text-color);
 }
 
-welcome-message {
-  align-self: center;
-  text-align: center;
-  margin: 2rem;
-}
-
-h1 {
-  font-size: 2rem;
-  color: var(--text-color);
-}
-
 .links {
   color: var(--text-color);
   text-decoration: none;
+  font-size: 1.5rem;
 }
 </style>
