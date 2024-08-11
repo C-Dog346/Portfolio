@@ -1,20 +1,33 @@
 <template>
   <div class="about">
     <div class="so-far">
-      <h1> About me so far </h1>
+      <h1>About me <span class="highlight">so far</span>.</h1>
       <p class="blurb">
-        I am a full-stack web developer with a passion for creating beautiful and functional websites. I have experience
-        with HTML, CSS, JavaScript, and Vue.js. I am always looking to learn new technologies and improve my skills.
+       I became a software developer to quench my thirst for problem solving. All through both my 
+       professional and personal life, I have found that I love to learn. 
+       <br>
+       <br>
+       Throughout uni and my internship I fell in love with working in teams and interacting with people.
+       <br>
+       <br>
+       In my spare time I enjoy playing video games, reading books and manga, and hang with my friends. 
+       I do martial arts, learn languages, walk my dog and go to the gym. 
       </p>
     </div>
     <div class="image">
-      <img src="../assets/about_pic.jpg" alt="Selfie" />
+      <img src="../assets/Callum_Selfie.jpg" alt="Selfie" class="selfie"/>
     </div>
     <div class="future">
-      <h1> My future goals </h1>
+      <h1> My <span class="highlight">future goals</span>.</h1>
       <p class="blurb">
-        I am currently working on improving my skills with Vue.js and learning more about back-end development. I am
-        excited to continue learning and growing as a developer.
+        I am currently working on improving my skills with Vue.js and learning more about back-end development.
+        <br>
+        <br>
+        I hope to join a team where I can continue to learn, grow and make new connections with people.
+        <br>
+        <br>
+        One day I will manage my own team and help others grow in their careers. Leadership is my passion;
+        I love to work with people and help make a difference.
       </p>
     </div>
   </div>
@@ -25,12 +38,23 @@
   margin: 2rem;
   display: flex;
   justify-content: space-around;
-  gap: 20px;
 }
 
 .blurb {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--text-color);
-  max-width: 600px;
+  max-width: 1000px;
+}
+
+.selfie {
+  max-width: 75%;
+  max-height: 75%;
+  border: 2px solid var(--border-color);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+.image {
+  display: flex;
+  justify-content: center;
 }
 </style>

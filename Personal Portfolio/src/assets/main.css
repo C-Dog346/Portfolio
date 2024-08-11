@@ -11,3 +11,7 @@
   --secondary-color: #A30101;
   --border-color: #00FF29;
 }
+
+.highlight {
+	color: var(--secondary-color);
+}
