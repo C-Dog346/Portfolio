@@ -3,8 +3,8 @@
 
 <template>
 	<div class="welcome-message">
-		<h1> Hi, I'm <span class="highlight">Callum</span>! </h1>
-		<h1> Welcome to my portfolio. </h1>
+		<h1>Hi, I'm <span class="highlight">Callum</span>!</h1>
+		<h1>Welcome to my portfolio.</h1>
 	</div>
 	<div class="continue-button">
 		<RouterLink to="/about" class="continue-text">Continue</RouterLink>
@@ -20,10 +20,6 @@ h1 {
 	font-size: 4rem;
 	font-weight: 100;
 	color: var(--text-color);
-}
-
-.highlight {
-	color: var(--secondary-color);
 }
 
 .continue-button {
