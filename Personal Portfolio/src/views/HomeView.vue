@@ -29,8 +29,9 @@ h1 {
 	border-radius: 5px;
 	font-size: 1.5rem;
 	cursor: pointer;
-	max-width: 200px;
+	max-width: 100px;
 	margin: 2rem;
+	text-align: center;
 }
 .continue-button:hover {
 	background-color: var(--secondary-color);
