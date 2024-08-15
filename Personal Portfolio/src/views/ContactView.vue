@@ -1,7 +1,32 @@
+<script setup>
+import { ref } from 'vue';
+
+const name = ref('');
+const email = ref('');
+const organisation = ref('');
+const message = ref('');
+
+// Submit function
+const submitForm = () => {
+	// Get the form data
+	const formData = {
+		name: name.value,
+		email: email.value,
+		organisation: organisation.value,
+		message: message.value
+	};
+	// Log the form data
+	console.log(formData);
+
+	// send email to target email address
+	
+};
+</script>
+
 <template>
 	<div>
 		<h1>Contact</h1>
-		<form @submit="submitForm">
+		<form @submit.prevent="submitForm">
 			<div>
 				<div>
 					<input type="text" id="name" v-model="name" placeholder="Name *" required>
@@ -21,12 +46,9 @@
 	</div>
 </template>
 
-<script>
-</script>
-
 <style scoped>
 h1 {
-	font-size: 24px;
+	font-size: 4rem;
 	margin-bottom: 20px;
 }
 
@@ -49,6 +71,7 @@ textarea {
 	border-radius: 4px;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
+	min-width: 40%;
 }
 
 button {
