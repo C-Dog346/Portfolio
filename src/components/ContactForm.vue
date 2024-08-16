@@ -6,7 +6,7 @@ const form = ref(null);
 
 const sendEmail = () => {
     emailjs
-        .sendForm('service_5cba85g', 'template_b36jwni', form.value, {
+        .sendForm('service_5cba85g', 'contact_form', form.value, {
             publicKey: 'f-k6FbmkYdrA0tDFr',
         })
         .then(
