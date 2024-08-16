@@ -23,14 +23,18 @@ const props = defineProps({
 
 <template>
 	<div class="project">
-		<h1> {{ props.name }} </h1>
+		<h2> {{ props.name }} </h2>
 		<div class="image">
 			<img :src="props.image" alt="Project Image" />
 		</div>
 		<p class="description">{{ props.description }}</p>
 		<div class="links">
-			<a :href="props.github" target="_blank"><img class="icon" src="../assets/GitHubLogo.png"
-					alt="GitHub project link" /></a>
+			<a :href="props.github" target="_blank" title="GitHub project link"><img class="icon"
+					src="../assets/GitHubLogo.png" alt="GitHub project link" /></a>
+		</div>
+
+		<!-- serpation div line -->
+		<div style="border: 1px solid black; margin-top: 1rem; margin-bottom: 1rem;">
 		</div>
 
 	</div>
@@ -45,6 +49,11 @@ const props = defineProps({
 
 .image {
 	border: 1px solid var(--border-color);
+}
+
+img {
+	max-width: 100%;
+	height: auto;
 }
 
 p.description {
