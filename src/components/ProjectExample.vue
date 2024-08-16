@@ -32,11 +32,8 @@ const props = defineProps({
 			<a :href="props.github" target="_blank" title="GitHub project link"><img class="icon"
 					src="../assets/GitHubLogo.png" alt="GitHub project link" /></a>
 		</div>
-
-		<!-- serpation div line -->
 		<div style="border: 1px solid black; margin-top: 1rem; margin-bottom: 1rem;">
 		</div>
-
 	</div>
 </template>
 
