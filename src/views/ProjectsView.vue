@@ -1,29 +1,6 @@
 <script setup>
 import ProjectExample from '@/components/ProjectExample.vue';
-
-const projects = [
-	{
-		id: 1,
-		name: 'Islands Challenge',
-		image: 'src/assets/IslandsProject.png',
-		description: 'This is a project that I made for the islands challenge.',
-		github: 'https://github.com/C-Dog346/Islands-Challenge'
-	},
-	{
-		id: 2,
-		name: 'Project 2',
-		image: 'https://via.placeholder.com/150',
-		description: 'This is project 2',
-		github: 'https://github.com/C-Dog346/Islands-Challenge'
-	},
-	{
-		id: 3,
-		name: 'Project 3',
-		image: 'https://via.placeholder.com/150',
-		description: 'This is project 3',
-		github: 'https://github.com/C-Dog346/Islands-Challenge'
-	}
-];
+import projects from '@/assets/data/projects.json'; 
 
 </script>
 
