@@ -1,23 +1,23 @@
 [
-{
-	"id": 1,
-	"name": "Personal Portfolio",
-	"image": "src/assets/PersonalPortfolio.png",
-	"description": "This website you're using right now! It is still a work in progress, but I'm happy with how it's turning out.",
-	"github": "https://github.com/C-Dog346/Portfolio"
-},
-{
-	"id": 2,
-	"name": "PRCount",
-	"image": "src/assets/PersonalPortfolio.png",
-	"description": "Counts the number of open PRs in a chosen repository via the GitHub API.",
-	"github": "https://github.com/C-Dog346/PRCount"
-},
-{
-	"id": 3,
-	"name": "Islands Challenge",
-	"image": "src/assets/IslandsProject.png",
-	"description": "This is a project that I made for the islands challenge issued to me during a job interview.",
-	"github": "https://github.com/C-Dog346/Islands-Challenge"
-}
+	{
+		"id": 1,
+		"name": "Personal Portfolio",
+		"image": "src/assets/PersonalPortfolio.png",
+		"description": "This website you're using right now! It is still a work in progress, but I'm happy with how it's turning out.",
+		"github": "https://github.com/C-Dog346/Portfolio"
+	},
+	{
+		"id": 2,
+		"name": "PRCount",
+		"image": "src/assets/PRCountPrint.png",
+		"description": "Counts the number of open PRs in a chosen repository via the GitHub API.",
+		"github": "https://github.com/C-Dog346/PRCount"
+	},
+	{
+		"id": 3,
+		"name": "Islands Challenge",
+		"image": "src/assets/IslandsProject.png",
+		"description": "This is a project that I made for the islands challenge issued to me during a job interview.",
+		"github": "https://github.com/C-Dog346/Islands-Challenge"
+	}
 ]
