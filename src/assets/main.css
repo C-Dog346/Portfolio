@@ -1,15 +1,16 @@
+:root {
+  --primary-color: #DCDCDC;
+  --secondary-color: #A30101;
+  --border-color: #00FF29;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
-  font-family: 'Roboto', sans-serif;
-}
-
-:root {
-  --primary-color: #DCDCDC;
-  --secondary-color: #A30101;
-  --border-color: #00FF29;
+  font-family: 'Roboto', sans-serif ;
+  color: var(--primary-color);
 }
 
 .highlight {

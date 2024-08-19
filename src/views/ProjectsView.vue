@@ -17,6 +17,9 @@ import projects from '@/assets/data/projects.json';
 </template>
 
 <style scoped>
+h1 {
+	text-align: center;
+}
 ul {
 	list-style: none;
 }
