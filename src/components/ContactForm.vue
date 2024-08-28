@@ -12,6 +12,8 @@ const sendEmail = () => {
         .then(
             () => {
                 console.log('SUCCESS!');
+                form.value.reset();
+                form.value.querySelector('.status-message').innerHTML = 'Your message has been sent!';
             },
             (error) => {
                 console.log('FAILED...', error.text);
@@ -28,6 +30,7 @@ const sendEmail = () => {
         <input type="organisation" id="user_organisation" placeholder="Organisation">
         <textarea name="message" placeholder="Message *" required></textarea>
         <button type="submit" value="Send">Submit</button>
+        <div class="status-message"></div>
     </form>
 </template>
 
@@ -47,6 +50,8 @@ textarea {
     font-size: 14px;
     min-width: 30%;
     max-width: 60%;
+    background-color: #111213;
+    color: var(--text-color);
 }
 
 textarea {
@@ -70,5 +75,10 @@ button:hover {
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+.status-message {
+    margin-top: 10px;
+    color: #00DD50;
 }
 </style>
