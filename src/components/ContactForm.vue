@@ -70,22 +70,8 @@ div.submit-button {
     align-items: center;
 }
 
-button::after {
-    display: block;
-    content: '';
-    height: 2px;
-    bottom: 1px;
-    top: 0%;
-    background-color: var(--secondary-color);
-    width: 100%;
-    transition: all 1.5;
-    transform-origin: bottom;
-    z-index: -1;
-}
-
 button {
     padding: 10px 20px;
-    padding-bottom: 0px;
     font-size: 16px;
     color: white;
     background-color: transparent;
@@ -94,22 +80,39 @@ button {
     cursor: pointer;
     z-index: 1;
     border: transparent;
+    border-radius: 8px;
 }
 
 button::before {
     content: '';
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: 0%;
+    left: -100%;
     width: 100%;
     height: 100%;
     background-color: var(--secondary-color);
-    transition: top 0.5s ease;
+    transition: left 0.5s ease;
     z-index: -1;
 }
 
 button:hover::before {
-    top: 0;
+    left: -50%;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 0%;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color);
+    transition: right 0.5s ease;
+    z-index: -1;
+}
+
+button:hover::after {
+    right: -50%;
 }
 
 .status-message {
