@@ -1,6 +1,6 @@
 <script setup>
 import ImageBanner from '@/components/ImageBanner.vue';
-import technologies from '@/assets/data/projects.json';
+import technologies from '@/assets/data/technologies/technologies.json';
 </script>
 <template>
   <div class="about">
@@ -35,7 +35,7 @@ import technologies from '@/assets/data/projects.json';
       </p>
     </div>
   </div>
-  <ImageBanner :index="technologies.id" :images="technologies[2].image"></ImageBanner>
+  <ImageBanner :images="technologies"></ImageBanner>
 </template>
 
 <style>
