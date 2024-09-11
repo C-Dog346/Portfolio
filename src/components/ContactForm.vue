@@ -58,6 +58,7 @@ textarea {
     max-width: 60%;
     background-color: #111213;
     color: var(--text-color);
+    caret-color: var(--secondary-color);
 }
 
 textarea {
@@ -87,7 +88,7 @@ button::before {
     content: '';
     position: absolute;
     top: 0%;
-    left: -100%;
+    left: -95%;
     width: 100%;
     height: 100%;
     background-color: var(--secondary-color);
@@ -103,7 +104,7 @@ button::after {
     content: '';
     position: absolute;
     top: 0%;
-    right: -100%;
+    right: -95%;
     width: 100%;
     height: 100%;
     background-color: var(--secondary-color);
