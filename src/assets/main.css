@@ -2,6 +2,10 @@
   --primary-color: #DCDCDC;
   --secondary-color: #A30101;
   --border-color: #00FF29;
+  --background-color: #181A1B;
+}
+body {
+  background-color: var(--background-color);
 }
 
 #app {
@@ -11,6 +15,7 @@
   font-weight: normal;
   font-family: 'Roboto', sans-serif ;
   color: var(--primary-color);
+  background-color: var(--background-color);
 }
 
 .highlight {
