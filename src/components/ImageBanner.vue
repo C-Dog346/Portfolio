@@ -2,6 +2,10 @@
 import { defineProps, onMounted, onBeforeUnmount, ref, computed } from 'vue';
 
 const props = defineProps({
+	title: {
+		type: String,
+		required: false,
+	},
 	images: {
 		type: Array,
 		required: true
@@ -45,17 +49,20 @@ onBeforeUnmount(() => {
 	stopAutoScroll();
 });
 
+console.log(props.images);
+
 </script>
 
 <template>
+	<div v-if="props.title" class="image-banner-title">{{ props.title }}</div>
 	<div class="image-banner">
 		<div class="image-banner-container">
 			<div class="image-banner-content" :style="scrollStyle">
 				<div v-for="(image, index) in props.images" :key="'set1-' + index" class="image-banner-item">
-					<img :src="image.url" alt="Banner Image" />
+					<img :src="image.image" alt="Banner Image" />
 				</div>
 				<div v-for="(image, index) in props.images" :key="'set2-' + index" class="image-banner-item">
-					<img :src="image" alt="Banner Image" />
+					<img :src="image.image" alt="Banner Image" />
 				</div>
 			</div>
 		</div>
@@ -63,6 +70,12 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+.image-banner-title {
+	font-size: 4rem;
+	color: var(--text-color);
+	margin-bottom: 10px;
+	text-align: center;
+}
 .image-banner {
 	width: 100%;
 	overflow: hidden;
@@ -82,6 +95,7 @@ onBeforeUnmount(() => {
 .image-banner-item {
 	flex: 0 0 auto;
 	margin-right: 10px;
+	width: 90px;
 }
 
 .image-banner-item img {

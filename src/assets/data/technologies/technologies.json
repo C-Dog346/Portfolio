@@ -1,42 +1,58 @@
 [
 	{
-		"name": "image1",
-		"url": "https://dummyimage.com/300"
+		"name": "typescript",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
 	},
 	{
-		"name": "image2",
-		"url": "https://dummyimage.com/300"
+		"name": "javascript",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
 	},
 	{
-		"name": "image3",
-		"url": "https://dummyimage.com/300"
+		"name": "java",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
 	},
 	{
-		"name": "image4",
-		"url": "https://dummyimage.com/300"
+		"name": "vuejs",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg"
 	},
 	{
-		"name": "image5",
-		"url": "https://dummyimage.com/300"
+		"name": "php",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"
 	},
 	{
-		"name": "image6",
-		"url": "https://dummyimage.com/300"
+		"name": "c",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg"
 	},
 	{
-		"name": "image7",
-		"url": "https://dummyimage.com/300"
+		"name": "csharp",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg"
 	},
 	{
-		"name": "image8",
-		"url": "https://dummyimage.com/300"
+		"name": "reactnative",
+		"image": "https://cdn.worldvectorlogo.com/logos/react-native-1.svg"
 	},
 	{
-		"name": "image9",
-		"url": "https://dummyimage.com/300"
+		"name": "html5",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
 	},
 	{
-		"name": "image10",
-		"url": "https://dummyimage.com/300"
+		"name": "sqldeveloper",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqldeveloper/sqldeveloper-original.svg"
+	},
+	{
+		"name": "nodejs",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"
+	},
+	{
+		"name": "git",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+	},
+	{
+		"name": "css",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+	},
+	{
+		"name": "github",
+		"image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
 	}
 ]

@@ -18,7 +18,7 @@ import technologies from '@/assets/data/technologies/technologies.json';
         I do martial arts, learn languages, walk my dog and go to the gym.
       </p>
     </div>
-    <div class="image">
+    <div class="image-container">
       <img src="../assets/Callum_Selfie.jpg" alt="Selfie" class="selfie" />
     </div>
     <div class="future">
@@ -35,14 +35,15 @@ import technologies from '@/assets/data/technologies/technologies.json';
       </p>
     </div>
   </div>
-  <ImageBanner :images="technologies"></ImageBanner>
+  <ImageBanner :title="'My Technologies'"  :images="technologies"></ImageBanner>
 </template>
 
 <style>
 .about {
   margin: 2rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center; 
+  align-items: flex-start; 
 }
 
 .blurb {
@@ -52,13 +53,13 @@ import technologies from '@/assets/data/technologies/technologies.json';
 }
 
 .selfie {
-  max-width: 75%;
-  max-height: 75%;
+  max-width: 60%;
+  max-height: 60%;
   border: 2px solid var(--border-color);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
 }
 
-.image {
+.image-container {
   display: flex;
   justify-content: center;
 }
