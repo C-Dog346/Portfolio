@@ -1,21 +1,25 @@
+<script setup>
+import ImageBanner from '@/components/ImageBanner.vue';
+import technologies from '@/assets/data/technologies/technologies.json';
+</script>
 <template>
   <div class="about">
     <div class="so-far">
       <h1>About me <span class="highlight">so far</span>.</h1>
       <p class="blurb">
-       I became a software developer to quench my thirst for problem solving. All through both my 
-       professional and personal life, I have found that I love to learn. 
-       <br>
-       <br>
-       Throughout uni and my internship I fell in love with working in teams and interacting with people.
-       <br>
-       <br>
-       In my spare time I enjoy playing video games, reading books and manga, and hang with my friends. 
-       I do martial arts, learn languages, walk my dog and go to the gym. 
+        I became a software developer to quench my thirst for problem solving. All through both my
+        professional and personal life, I have found that I love to learn.
+        <br>
+        <br>
+        Throughout uni and my internship I fell in love with working in teams and interacting with people.
+        <br>
+        <br>
+        In my spare time I enjoy playing video games, reading books and manga, and hang with my friends.
+        I do martial arts, learn languages, walk my dog and go to the gym.
       </p>
     </div>
-    <div class="image">
-      <img src="../assets/Callum_Selfie.jpg" alt="Selfie" class="selfie"/>
+    <div class="image-container">
+      <img src="../assets/Callum_Selfie.jpg" alt="Selfie" class="selfie" />
     </div>
     <div class="future">
       <h1> My <span class="highlight">future goals</span>.</h1>
@@ -31,13 +35,15 @@
       </p>
     </div>
   </div>
+  <ImageBanner :title="'My Technologies'"  :images="technologies"></ImageBanner>
 </template>
 
 <style>
 .about {
   margin: 2rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center; 
+  align-items: flex-start; 
 }
 
 .blurb {
@@ -47,13 +53,13 @@
 }
 
 .selfie {
-  max-width: 75%;
-  max-height: 75%;
+  max-width: 60%;
+  max-height: 60%;
   border: 2px solid var(--border-color);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
 }
 
-.image {
+.image-container {
   display: flex;
   justify-content: center;
 }
