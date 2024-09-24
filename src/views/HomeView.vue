@@ -1,4 +1,11 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const cont = () => {
+	router.push('/about');
+};
 </script>
 
 <template>
@@ -6,7 +13,7 @@
 		<h1>Hi, I'm <span class="highlight">Callum</span>!</h1>
 		<h1>Welcome to my portfolio.</h1>
 	</div>
-	<div class="continue-button">
+	<div class="continue-button" @click="cont">
 		<RouterLink to="/about" class="continue-text">Continue</RouterLink>
 	</div>
 </template>
@@ -32,6 +39,7 @@ h1 {
 	max-width: 80px;
 	margin: 2rem;
 	text-align: center;
+	cursor: pointer;
 }
 
 .continue-text {
@@ -39,7 +47,7 @@ h1 {
 	color: var(--text-color);
 }
 
-.continue-text::before {
+.continue-button::before {
 	content: '';
 	position: absolute;
 	top: 0%;
@@ -51,11 +59,11 @@ h1 {
 	z-index: -1;
 }
 
-.continue-text:hover::before {
+.continue-button:hover::before {
     left: -50%;
 }
 
-.continue-text::after {
+.continue-button::after {
     content: '';
     position: absolute;
     top: 0%;
@@ -67,7 +75,7 @@ h1 {
     z-index: -1;
 }
 
-.continue-text:hover::after {
+.continue-button:hover::after {
     right: -50%;
 }
 </style>
