@@ -9,7 +9,7 @@
 	{
 		"id": 2,
 		"name": "PRCount",
-		"image": "https://github.com/C-Dog346/Portfolio/blob/main/src/assets/data/projects/PRCountPrint.png",
+		"image": "src/assets/data/projects/PRCountPrint.png",
 		"description": "Counts the number of open PRs in a chosen repository via the GitHub API.",
 		"github": "https://github.com/C-Dog346/PRCount"
 	},

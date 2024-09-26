@@ -1,7 +1,7 @@
 <script setup>
 import ProjectExample from '@/components/ProjectExample.vue';
 import projects from "../assets/data/projects/projects.json";
-
+console.log(projects);	
 </script>
 
 <template>
