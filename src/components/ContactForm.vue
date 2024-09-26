@@ -74,7 +74,7 @@ div.submit-button {
 button {
     padding: 10px 20px;
     font-size: 16px;
-    color: white;
+    color: var(--text-color);
     background-color: transparent;
     position: relative;
     overflow: hidden;

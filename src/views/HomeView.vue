@@ -1,4 +1,11 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const cont = () => {
+	router.push('/about');
+};
 </script>
 
 <template>
@@ -6,7 +13,7 @@
 		<h1>Hi, I'm <span class="highlight">Callum</span>!</h1>
 		<h1>Welcome to my portfolio.</h1>
 	</div>
-	<div class="continue-button">
+	<div class="continue-button" @click="cont">
 		<RouterLink to="/about" class="continue-text">Continue</RouterLink>
 	</div>
 </template>
@@ -23,21 +30,52 @@ h1 {
 }
 
 .continue-button {
-	background-color: var(--border-color);
-	color: var(--text-color);
-	padding: 1rem 2rem;
-	border-radius: 5px;
-	font-size: 1.5rem;
-	cursor: pointer;
-	max-width: 100px;
+	padding: 10px 20px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: transparent;
+    border-radius: 8px;
+	max-width: 80px;
 	margin: 2rem;
 	text-align: center;
+	cursor: pointer;
 }
-.continue-button:hover {
-	background-color: var(--secondary-color);
-}
+
 .continue-text {
 	text-decoration: none;
 	color: var(--text-color);
+}
+
+.continue-button::before {
+	content: '';
+	position: absolute;
+	top: 0%;
+	left: -95%;
+	width: 100%;
+	height: 100%;
+	background-color: var(--secondary-color);
+	transition: left 0.75s ease;
+	z-index: -1;
+}
+
+.continue-button:hover::before {
+    left: -50%;
+}
+
+.continue-button::after {
+    content: '';
+    position: absolute;
+    top: 0%;
+    right: -95%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color);
+    transition: right 0.75s ease;
+    z-index: -1;
+}
+
+.continue-button:hover::after {
+    right: -50%;
 }
 </style>
