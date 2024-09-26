@@ -71,7 +71,7 @@ h1 {
     width: 100%;
     height: 100%;
     background-color: var(--secondary-color);
-    transition: right 0.5s ease;
+    transition: right 0.75s ease;
     z-index: -1;
 }
 

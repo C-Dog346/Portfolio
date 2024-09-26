@@ -7,11 +7,11 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/Portfolio/",
   plugins: [vue(), vueJsx(), vueDevTools()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/Portfolio/'
 })
