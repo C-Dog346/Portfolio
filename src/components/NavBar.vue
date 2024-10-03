@@ -3,9 +3,26 @@ import { ref } from 'vue';
 import { RouterLink } from 'vue-router'
 
 const isHovered = ref(false);
+const hoverBox = ref(null);
+const nav = ref(null);
 
 const showBox = () => {
   isHovered.value = true;
+
+  const hoverBoxCoords = hoverBox.value.getBoundingClientRect();
+  const navCoords = nav.value.getBoundingClientRect();
+
+  const coords = {
+    height: hoverBoxCoords.height,
+    width: hoverBoxCoords.width,
+    top: hoverBoxCoords.top - navCoords.top,
+    left: hoverBoxCoords.left - navCoords.left
+  };
+
+  hoverBox.value.style.setProperty('width', `${coords.width}px`);
+  hoverBox.value.style.setProperty('height', `${coords.height}px`);
+  hoverBox.value.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
+
 };
 
 const hideBox = () => {
@@ -15,8 +32,8 @@ const hideBox = () => {
 
 
 <template>
-  <nav>
-    <div v-if="isHovered" class="dropdownBackground">
+  <nav ref="nav">
+    <div ref="hoverBox" class="dropdownBackground" v-show="isHovered">
       <span class="arrow">!!!!</span>
     </div>
     <ul>
