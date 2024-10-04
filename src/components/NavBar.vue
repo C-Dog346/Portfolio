@@ -6,8 +6,11 @@ const isHovered = ref(false);
 const hoverBox = ref(null);
 const nav = ref(null);
 
-const showBox = () => {
+const showBox = (e) => {
+  console.log(e)
+  e.target.classList.add('hovered');
   isHovered.value = true;
+  hoverBox.value.classList.add("hovered");
 
   const hoverBoxCoords = hoverBox.value.getBoundingClientRect();
   const navCoords = nav.value.getBoundingClientRect();
@@ -19,13 +22,18 @@ const showBox = () => {
     left: hoverBoxCoords.left - navCoords.left
   };
 
-  hoverBox.value.style.setProperty('width', `${coords.width}px`);
-  hoverBox.value.style.setProperty('height', `${coords.height}px`);
-  hoverBox.value.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
+  console.log(coords);
 
+  // hoverBox.value.style.setProperty('width', `${coords.width}px`);
+  // hoverBox.value.style.setProperty('height', `${coords.height}px`);
+  // hoverBox.value.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
+  hoverBox.value.style.setProperty('width', `100px`);
+  hoverBox.value.style.setProperty('height', `100px`);
+  hoverBox.value.style.setProperty('transform', `translate(${20}px, ${30}px)`);
 };
 
-const hideBox = () => {
+const hideBox = (e) => {
+  e.target.classList.remove('hovered');
   isHovered.value = false;
 };
 </script>
@@ -33,21 +41,24 @@ const hideBox = () => {
 
 <template>
   <nav ref="nav">
-    <div ref="hoverBox" class="dropdownBackground" v-show="isHovered">
-      <span class="arrow">!!!!</span>
+    <div ref="hoverBox" class="hoverBox" v-show="isHovered">
+      <span class="arrow"></span>
     </div>
     <ul>
-      <li>
-        <RouterLink to="/" class="links" @mouseenter="showBox" @mouseleave="hideBox">Home</RouterLink>
+      <li @mouseenter="showBox" @mouseleave="hideBox">
+        <RouterLink to="/" class="links">Home</RouterLink>
+        <div class="dropdown">
+          TESTING TEXT
+        </div>
       </li>
-      <li>
-        <RouterLink to="/about" class="links" @mouseenter="showBox" @mouseleave="hideBox">About</RouterLink>
+      <li @mouseenter="showBox" @mouseleave="hideBox">
+        <RouterLink to="/about" class="links">About</RouterLink>
       </li>
-      <li>
-        <RouterLink to="/projects" class="links" @mouseenter="showBox" @mouseleave="hideBox">Projects</RouterLink>
+      <li @mouseenter="showBox" @mouseleave="hideBox">
+        <RouterLink to="/projects" class="links">Projects</RouterLink>
       </li>
-      <li>
-        <RouterLink to="/contact" class="links" @mouseenter="showBox" @mouseleave="hideBox">Contact</RouterLink>
+      <li @mouseenter="showBox" @mouseleave="hideBox">
+        <RouterLink to="/contact" class="links">Contact</RouterLink>
       </li>
     </ul>
   </nav>
@@ -81,5 +92,45 @@ nav li {
   color: var(--text-color);
   text-decoration: none;
   font-size: 1.5rem;
+}
+
+.hoverBox {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 50px 100px rgba(50, 50, 93, .1), 0 15px 35px rgba(50, 50, 93, .15), 0 5px 15px rgba(0, 0, 0, .1);
+  transition: all 0.3s, opacity 0.1s, transform 0.2s;
+  transform-origin: 50% 0;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+}
+
+.hoverBox.hovered {
+  opacity: 1;
+}
+
+.arrow {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: white;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.dropdown {
+  opacity: 0;
+  position: absolute;
+  overflow: hidden;
+  padding: 20px;
+  top: -20px;
+  border-radius: 2px;
+  transition: all 0.5s;
+  transform: translateY(100px);
+  will-change: opacity;
+  display: none;
 }
 </style>
