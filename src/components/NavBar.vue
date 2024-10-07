@@ -1,41 +1,25 @@
 <script setup>
 import { ref } from 'vue';
-import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router';
 
 const isHovered = ref(false);
 const hoverBox = ref(null);
 const nav = ref(null);
 
 const showBox = (e) => {
-  console.log(e)
-  e.target.classList.add('hovered');
   isHovered.value = true;
-  hoverBox.value.classList.add("hovered");
 
-  const hoverBoxCoords = hoverBox.value.getBoundingClientRect();
-  const navCoords = nav.value.getBoundingClientRect();
+  const dropdown = e.target.querySelector('.dropdown');
+  dropdown.style.visibility = 'visible';
 
-  const coords = {
-    height: hoverBoxCoords.height,
-    width: hoverBoxCoords.width,
-    top: hoverBoxCoords.top - navCoords.top,
-    left: hoverBoxCoords.left - navCoords.left
-  };
-
-  console.log(coords);
-
-  // hoverBox.value.style.setProperty('width', `${coords.width}px`);
-  // hoverBox.value.style.setProperty('height', `${coords.height}px`);
-  // hoverBox.value.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
-  hoverBox.value.style.setProperty('width', `100px`);
-  hoverBox.value.style.setProperty('height', `100px`);
-  hoverBox.value.style.setProperty('transform', `translate(${20}px, ${30}px)`);
 };
 
 const hideBox = (e) => {
-  e.target.classList.remove('hovered');
   isHovered.value = false;
+  const dropdown = e.target.querySelector('.dropdown');
+  dropdown.style.visibility = 'hidden';
 };
+
 </script>
 
 
@@ -53,12 +37,21 @@ const hideBox = (e) => {
       </li>
       <li @mouseenter="showBox" @mouseleave="hideBox">
         <RouterLink to="/about" class="links">About</RouterLink>
+        <div class="dropdown">
+          TESTING TEXT
+        </div>
       </li>
       <li @mouseenter="showBox" @mouseleave="hideBox">
         <RouterLink to="/projects" class="links">Projects</RouterLink>
+        <div class="dropdown">
+          TESTING TEXT
+        </div>
       </li>
       <li @mouseenter="showBox" @mouseleave="hideBox">
         <RouterLink to="/contact" class="links">Contact</RouterLink>
+        <div class="dropdown">
+          TESTING TEXT
+        </div>
       </li>
     </ul>
   </nav>
@@ -86,6 +79,7 @@ nav ul {
 nav li {
   flex: 1;
   text-align: center;
+  position: relative;
 }
 
 .links {
@@ -98,18 +92,13 @@ nav li {
   width: 100px;
   height: 100px;
   position: absolute;
-  background: #fff;
+  background: #a73c2c;
   border-radius: 4px;
   box-shadow: 0 50px 100px rgba(50, 50, 93, .1), 0 15px 35px rgba(50, 50, 93, .15), 0 5px 15px rgba(0, 0, 0, .1);
   transition: all 0.3s, opacity 0.1s, transform 0.2s;
   transform-origin: 50% 0;
   display: flex;
   justify-content: center;
-  opacity: 0;
-}
-
-.hoverBox.hovered {
-  opacity: 1;
 }
 
 .arrow {
@@ -131,6 +120,6 @@ nav li {
   transition: all 0.5s;
   transform: translateY(100px);
   will-change: opacity;
-  display: none;
+  visibility: hidden;
 }
 </style>
