@@ -7,11 +7,11 @@ const hoverBox = ref(null);
 const nav = ref(null);
 
 const showBox = (e) => {
-  isHovered.value = true;
-  setTimeout(() => e.target.classList.add('hover-active'), 150);
   const dropdown = e.target.querySelector('.dropdown');
   dropdown.style.display = 'block';
   e.target.classList.add('trigger-hover');
+  setTimeout(() => e.target.classList.contains('trigger-hover') &&  e.target.classList.add('hover-active'), 150); // needed to make dropdown animation work;
+  isHovered.value = true;
 
   const navRect = nav.value.getBoundingClientRect();
   const dropdownRect = dropdown.getBoundingClientRect();
@@ -20,7 +20,7 @@ const showBox = (e) => {
     width: dropdownRect.width,
     height: dropdownRect.height,
     top: dropdownRect.top - navRect.top + window.scrollY,
-    left: dropdownRect.left + window.scrollX,
+    left: dropdownRect.left -navRect.left + window.scrollX,
   };
 
   hoverBox.value.style.width = `${coords.width}px`;
@@ -30,8 +30,7 @@ const showBox = (e) => {
 
 const hideBox = (e) => {
   isHovered.value = false;
-  const dropdown = e.target.querySelector('.dropdown');
-  e.target.classList.remove('trigger-hover');
+  e.target.classList.remove('trigger-hover', 'hover-active');
 };
 
 </script>
@@ -46,13 +45,13 @@ const hideBox = (e) => {
       <li @mouseenter="showBox" @mouseleave="hideBox">
         <RouterLink to="/" class="links">Home</RouterLink>
         <div class="dropdown">
-          11111
+          1
         </div>
       </li>
       <li @mouseenter="showBox" @mouseleave="hideBox">
         <RouterLink to="/about" class="links">About</RouterLink>
         <div class="dropdown">
-          22222
+          22222222222222
         </div>
       </li>
       <li @mouseenter="showBox" @mouseleave="hideBox">
