@@ -8,16 +8,30 @@ const nav = ref(null);
 
 const showBox = (e) => {
   isHovered.value = true;
-
+  setTimeout(() => e.target.classList.add('hover-active'), 150);
   const dropdown = e.target.querySelector('.dropdown');
-  dropdown.style.visibility = 'visible';
+  dropdown.style.display = 'block';
+  e.target.classList.add('trigger-hover');
 
+  const navRect = nav.value.getBoundingClientRect();
+  const dropdownRect = dropdown.getBoundingClientRect();
+
+  const coords = {
+    width: dropdownRect.width,
+    height: dropdownRect.height,
+    top: dropdownRect.top - navRect.top + window.scrollY,
+    left: dropdownRect.left + window.scrollX,
+  };
+
+  hoverBox.value.style.width = `${coords.width}px`;
+  hoverBox.value.style.height = `${coords.height}px`;
+  hoverBox.value.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
 };
 
 const hideBox = (e) => {
   isHovered.value = false;
   const dropdown = e.target.querySelector('.dropdown');
-  dropdown.style.visibility = 'hidden';
+  e.target.classList.remove('trigger-hover');
 };
 
 </script>
@@ -32,25 +46,25 @@ const hideBox = (e) => {
       <li @mouseenter="showBox" @mouseleave="hideBox">
         <RouterLink to="/" class="links">Home</RouterLink>
         <div class="dropdown">
-          TESTING TEXT
+          11111
         </div>
       </li>
       <li @mouseenter="showBox" @mouseleave="hideBox">
         <RouterLink to="/about" class="links">About</RouterLink>
         <div class="dropdown">
-          TESTING TEXT
+          22222
         </div>
       </li>
       <li @mouseenter="showBox" @mouseleave="hideBox">
         <RouterLink to="/projects" class="links">Projects</RouterLink>
         <div class="dropdown">
-          TESTING TEXT
+          33333
         </div>
       </li>
       <li @mouseenter="showBox" @mouseleave="hideBox">
         <RouterLink to="/contact" class="links">Contact</RouterLink>
         <div class="dropdown">
-          TESTING TEXT
+          444444
         </div>
       </li>
     </ul>
@@ -79,7 +93,6 @@ nav ul {
 nav li {
   flex: 1;
   text-align: center;
-  position: relative;
 }
 
 .links {
@@ -95,7 +108,7 @@ nav li {
   background: #a73c2c;
   border-radius: 4px;
   box-shadow: 0 50px 100px rgba(50, 50, 93, .1), 0 15px 35px rgba(50, 50, 93, .15), 0 5px 15px rgba(0, 0, 0, .1);
-  transition: all 0.3s, opacity 0.1s, transform 0.2s;
+  transition: all 0.5s, opacity 0.1s, transform 0.2s;
   transform-origin: 50% 0;
   display: flex;
   justify-content: center;
@@ -120,6 +133,10 @@ nav li {
   transition: all 0.5s;
   transform: translateY(100px);
   will-change: opacity;
-  visibility: hidden;
+  display: none;
+}
+
+.trigger-hover .dropdown {
+  opacity: 1;
 }
 </style>
