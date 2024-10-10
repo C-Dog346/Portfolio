@@ -10,7 +10,7 @@ const showBox = (e) => {
   const dropdown = e.target.querySelector('.dropdown');
   dropdown.style.display = 'block';
   e.target.classList.add('trigger-hover');
-  setTimeout(() => e.target.classList.contains('trigger-hover') &&  e.target.classList.add('hover-active'), 150); // needed to make dropdown animation work;
+  setTimeout(() => e.target.classList.contains('trigger-hover') && e.target.classList.add('hover-active'), 150); // needed to make dropdown animation work;
   isHovered.value = true;
 
   const navRect = nav.value.getBoundingClientRect();
@@ -19,8 +19,8 @@ const showBox = (e) => {
   const coords = {
     width: dropdownRect.width,
     height: dropdownRect.height,
-    top: dropdownRect.top - navRect.top + window.scrollY,
-    left: dropdownRect.left -navRect.left + window.scrollX,
+    top: dropdownRect.top - navRect.top,
+    left: (-navRect.width / 2) + dropdownRect.left - navRect.left + (dropdownRect.width / 2),
   };
 
   hoverBox.value.style.width = `${coords.width}px`;
@@ -90,8 +90,9 @@ nav ul {
 }
 
 nav li {
-  flex: 1;
-  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .links {
@@ -104,10 +105,11 @@ nav li {
   width: 100px;
   height: 100px;
   position: absolute;
-  background: #a73c2c;
+  background: var(--secondary-color);
   border-radius: 4px;
-  box-shadow: 0 50px 100px rgba(50, 50, 93, .1), 0 15px 35px rgba(50, 50, 93, .15), 0 5px 15px rgba(0, 0, 0, .1);
-  transition: all 0.5s, opacity 0.1s, transform 0.2s;
+  box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1),
+    0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s, opacity 0.1s, transform 0.2s;
   transform-origin: 50% 0;
   display: flex;
   justify-content: center;
@@ -118,7 +120,7 @@ nav li {
   width: 20px;
   height: 20px;
   display: block;
-  background: white;
+  background: var(--secondary-color);
   transform: translateY(-50%) rotate(45deg);
 }
 
