@@ -6,6 +6,13 @@ const isHovered = ref(false);
 const hoverBox = ref(null);
 const nav = ref(null);
 
+const props = defineProps({
+  links: {
+    type: Array,
+    required: true,
+  },
+});
+
 const showBox = (e) => {
   const dropdown = e.target.querySelector('.dropdown');
   dropdown.style.display = 'block';
@@ -42,28 +49,10 @@ const hideBox = (e) => {
       <span class="arrow"></span>
     </div>
     <ul>
-      <li @mouseenter="showBox" @mouseleave="hideBox">
-        <RouterLink to="/" class="links">Home</RouterLink>
+      <li v-for="link in props.links" :key="link.id" @mouseenter="showBox" @mouseleave="hideBox">
+        <RouterLink :to="link.link" class="links">{{ link.name }}</RouterLink>
         <div class="dropdown">
-          1
-        </div>
-      </li>
-      <li @mouseenter="showBox" @mouseleave="hideBox">
-        <RouterLink to="/about" class="links">About</RouterLink>
-        <div class="dropdown">
-          22222222222222
-        </div>
-      </li>
-      <li @mouseenter="showBox" @mouseleave="hideBox">
-        <RouterLink to="/projects" class="links">Projects</RouterLink>
-        <div class="dropdown">
-          33333
-        </div>
-      </li>
-      <li @mouseenter="showBox" @mouseleave="hideBox">
-        <RouterLink to="/contact" class="links">Contact</RouterLink>
-        <div class="dropdown">
-          444444
+          {{ link.body }} }}
         </div>
       </li>
     </ul>
