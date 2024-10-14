@@ -49,10 +49,13 @@ const hideBox = (e) => {
       <span class="arrow"></span>
     </div>
     <ul>
-      <li v-for="link in props.links" :key="link.id" @mouseenter="showBox" @mouseleave="hideBox">
+      <li v-for="(link) in props.links" :key="link.id" @mouseenter="showBox" @mouseleave="hideBox">
         <RouterLink :to="link.link" class="links">{{ link.name }}</RouterLink>
         <div class="dropdown">
-          {{ link.body }} }}
+          <span v-if="typeof link.body === 'object'">
+            <a v-for="(item, index) in link.body" :key="index" :href="item.link" class="body-list" >{{ item.name }}</a></span>
+          <span v-else>{{ link.body }}</span><br>
+          <br>
         </div>
       </li>
     </ul>
@@ -82,6 +85,13 @@ nav li {
   position: relative;
   display: flex;
   justify-content: center;
+}
+
+.body-list {
+  display: block;
+  text-wrap: nowrap;
+  text-decoration: none;
+  color: var(--text-color); 
 }
 
 .links {
