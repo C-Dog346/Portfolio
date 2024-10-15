@@ -78,7 +78,7 @@ nav ul {
   padding: 0;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 nav li {
@@ -101,8 +101,6 @@ nav li {
 }
 
 .hoverBox {
-  width: 100px;
-  height: 100px;
   position: absolute;
   background: var(--secondary-color);
   border-radius: 4px;
