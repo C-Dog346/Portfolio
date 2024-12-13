@@ -1,0 +1,35 @@
+[
+	{
+		"name": "Home",
+		"link": "/",
+		"body": "Home Page!"
+	},
+	{
+		"name": "About",
+		"link": "/about",
+		"body": "About Page!"
+	},
+	{
+		"name": "Projects",
+		"link": "/projects",
+		"body": [
+			{
+				"name": "Project 1 ",
+				"link": "https://github.com/C-Dog346/Portfolio"
+			},
+			{
+				"name": "Project 2 ",
+				"link": "https://github.com/C-Dog346/PRCount"
+			},
+			{
+				"name": "Project 3 ",
+				"link": "https://github.com/C-Dog346/Islands-Challenge"
+			}
+		]
+	},
+	{
+		"name": "Contact",
+		"link": "/contact",
+		"body": "Contact Page!"
+	}
+]
