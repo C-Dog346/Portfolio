@@ -19,19 +19,24 @@ const showBox = (e) => {
   e.target.classList.add('trigger-hover');
   setTimeout(() => e.target.classList.contains('trigger-hover') && e.target.classList.add('hover-active'), 150);
 
+  console.log(e.target);
+  console.log(visualViewport);
   const navRect = nav.value.getBoundingClientRect();
   const listItemRect = e.target.getBoundingClientRect();
+
 
   const coords = {
     width: listItemRect.width,
     height: listItemRect.height,
-    top: listItemRect.top - navRect.top,
+    top: listItemRect.top,
     left: listItemRect.left - navRect.left,
   };
 
   hoverBox.value.style.width = `${coords.width}px`;
   hoverBox.value.style.height = `${coords.height}px`;
   hoverBox.value.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+
+  dropdown.style.top = `${listItemRect.height}px`;
   isHovered.value = true;
 };
 
@@ -85,6 +90,8 @@ nav li {
   flex-grow: 1;
   text-align: center;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .links {
@@ -106,6 +113,10 @@ nav li {
   transform: scale(0.8);
   display: flex;
   justify-content: center;
+}
+
+span > a {
+  display: block;
 }
 
 .hoverBox.show {
@@ -130,11 +141,9 @@ nav li {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transform: translateY(20px);
   transition: all 0.3s ease;
-  display: none;
 }
 
 .trigger-hover .dropdown {
-  display: block;
   opacity: 1;
   transform: translateY(0);
 }
