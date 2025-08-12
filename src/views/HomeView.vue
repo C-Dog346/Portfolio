@@ -2,7 +2,7 @@
 
 <template>
   <div class="welcome-message">
-    <h1>Hi, I'm <span class="highlight">Callum</span>!</h1>
+    <h1>Hi, I'm <span class="highlight">Callum!</span></h1>
     <h1>Welcome to my portfolio.</h1>
   </div>
   <div class="btn continue-button">
