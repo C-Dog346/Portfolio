@@ -22,7 +22,7 @@ nav {
   justify-content: space-around;
   padding: 1rem;
   background-color: #791f1f00;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--neon-green);
   color: var(--text-color);
 }
 

@@ -5,7 +5,7 @@
     <h1>Hi, I'm <span class="highlight">Callum</span>!</h1>
     <h1>Welcome to my portfolio.</h1>
   </div>
-  <div class="continue-button">
+  <div class="btn continue-button">
     <RouterLink to="/about" class="continue-text">Continue</RouterLink>
   </div>
 </template>
@@ -22,7 +22,6 @@ h1 {
 }
 
 .continue-button {
-  background-color: var(--border-color);
   color: var(--text-color);
   padding: 1rem 2rem;
   border-radius: 5px;
@@ -32,9 +31,7 @@ h1 {
   margin: 2rem;
   text-align: center;
 }
-.continue-button:hover {
-  background-color: var(--secondary-color);
-}
+
 .continue-text {
   text-decoration: none;
   color: var(--text-color);
