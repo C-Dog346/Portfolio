@@ -1,10 +1,12 @@
 <script setup>
-import ImageBanner from '@/components/about/ImageBanner.vue'
+import ImageBanner from '@/components/common/ImageCarousel.vue'
 import technologies from '@/assets/data/technologies/technologies.json'
 import aboutText from '@/assets/data/aboutText.json'
 
 const aboutMeLines = aboutText.aboutMe.split('\n')
 const futureGoalsLines = aboutText.futureGoals.split('\n')
+
+const technologyImages = technologies.map((t) => t.image)
 </script>
 <template>
   <div class="about">
@@ -32,12 +34,12 @@ const futureGoalsLines = aboutText.futureGoals.split('\n')
       </p>
     </div>
   </div>
-  <ImageBanner :title="'My Technologies'" :images="technologies"></ImageBanner>
+  <ImageBanner class="imageBanner" :images="technologyImages" />
 </template>
 
 <style>
 .about {
-  margin: 2rem;
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -51,6 +53,10 @@ const futureGoalsLines = aboutText.futureGoals.split('\n')
 
 h1 {
   margin: 0rem;
+}
+
+.imageBanner {
+  margin-top: 2rem;
 }
 
 .selfie {
