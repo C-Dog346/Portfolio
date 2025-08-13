@@ -18,11 +18,11 @@
 h1 {
   font-size: 4rem;
   font-weight: 100;
-  color: var(--text-color);
+  color: var(--primary-text-color);
 }
 
 .continue-button {
-  color: var(--text-color);
+  color: var(--primary-text-color);
   padding: 1rem 2rem;
   border-radius: 5px;
   font-size: 1.5rem;
@@ -34,6 +34,6 @@ h1 {
 
 .continue-text {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--primary-text-color);
 }
 </style>

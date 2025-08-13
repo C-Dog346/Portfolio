@@ -1,5 +1,6 @@
 <script setup>
-import ImageBanner from '@/components/common/ImageCarousel.vue'
+import ImageCarousel from '@/components/common/ImageCarousel.vue'
+import MyLinks from '@/components/common/MyLinks.vue'
 import technologies from '@/assets/data/technologies/technologies.json'
 import aboutText from '@/assets/data/aboutText.json'
 
@@ -7,11 +8,25 @@ const aboutMeLines = aboutText.aboutMe.split('\n')
 const futureGoalsLines = aboutText.futureGoals.split('\n')
 
 const technologyImages = technologies.map((t) => t.image)
+
+const links = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/your-linkedin-profile',
+    image:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg'
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/your-github-username',
+    image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg'
+  }
+]
 </script>
 <template>
   <div class="about">
     <div class="so-far">
-      <h1>About me <span class="highlight">so far</span>.</h1>
+      <h1>About me <span class="highlight">so far.</span></h1>
       <p class="blurb">
         <span v-for="(line, idx) in aboutMeLines" :key="'aboutMe-' + idx">
           {{ line }}
@@ -24,7 +39,7 @@ const technologyImages = technologies.map((t) => t.image)
       <img src="../assets/Callum_Selfie.jpg" alt="Selfie" class="selfie" />
     </div>
     <div class="future">
-      <h1>My <span class="highlight">future goals</span>.</h1>
+      <h1>My <span class="highlight">future goals.</span></h1>
       <p class="blurb">
         <span v-for="(line, idx) in futureGoalsLines" :key="'futureGoals-' + idx">
           {{ line }}
@@ -34,7 +49,12 @@ const technologyImages = technologies.map((t) => t.image)
       </p>
     </div>
   </div>
-  <ImageBanner class="imageBanner" :images="technologyImages" />
+  <div>
+    <div></div>
+    <div></div>
+  </div>
+  <MyLinks :links="links" class="my-links" />
+  <ImageCarousel class="imageCarousel" :images="technologyImages" />
 </template>
 
 <style>
@@ -47,7 +67,7 @@ const technologyImages = technologies.map((t) => t.image)
 
 .blurb {
   font-size: 1.25rem;
-  color: var(--text-color);
+  color: var(--primary-text-color);
   max-width: 1000px;
 }
 
@@ -55,7 +75,7 @@ h1 {
   margin: 0rem;
 }
 
-.imageBanner {
+.imageCarousel {
   margin-top: 2rem;
 }
 
@@ -67,6 +87,12 @@ h1 {
 }
 
 .image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.my-links {
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
 }

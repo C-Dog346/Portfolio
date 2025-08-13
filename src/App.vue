@@ -23,11 +23,11 @@ nav {
   padding: 1rem;
   background-color: #791f1f00;
   border: 1px solid var(--neon-green);
-  color: var(--text-color);
+  color: var(--primary-text-color);
 }
 
 .links {
-  color: var(--text-color);
+  color: var(--primary-text-color);
   text-decoration: none;
   font-size: 1.5rem;
 }
