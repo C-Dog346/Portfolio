@@ -1,28 +1,30 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, type Ref } from 'vue'
 import emailjs from '@emailjs/browser'
 
-const form = ref(null)
+const form: Ref<HTMLFormElement | null> = ref(null)
 
-const sendEmail = () => {
-  let messageDiv = form.value.querySelector('.status-message')
-  emailjs
-    .sendForm('service_5cba85g', 'contact_form', form.value, {
-      publicKey: 'f-k6FbmkYdrA0tDFr'
+const SERVICE_ID = 'service_5cba85g'
+const TEMPLATE_ID = 'contact_form'
+const PUBLIC_KEY = 'f-k6FbmkYdrA0tDFr'
+const STATUS_SUCCESS = 'Your message has been sent!'
+const STATUS_ERROR = 'There was an error sending your message. Please try again later.'
+
+const sendEmail = async () => {
+  if (!form.value) return
+  const messageDiv = form.value.querySelector('.status-message')
+  if (!messageDiv) return
+  try {
+    await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.value, {
+      publicKey: PUBLIC_KEY
     })
-    .then(
-      () => {
-        console.log('SUCCESS!')
-        form.value.reset()
-        messageDiv.classList.add('success')
-        messageDiv.innerHTML = 'Your message has been sent!'
-      },
-      (error) => {
-        console.log('FAILED...', error.text)
-        messageDiv.classList.add('error')
-        messageDiv.innerHTML = 'There was an error sending your message. Please try again later.'
-      }
-    )
+    form.value.reset()
+    messageDiv.classList.add('success')
+    messageDiv.innerHTML = STATUS_SUCCESS
+  } catch (error: any) {
+    messageDiv.classList.add('error')
+    messageDiv.innerHTML = STATUS_ERROR
+  }
 }
 </script>
 
