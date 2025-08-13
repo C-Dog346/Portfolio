@@ -3,18 +3,24 @@ import CommonButton from '@/components/common/CommonButton.vue'
 </script>
 
 <template>
-  <div class="welcome-message">
-    <h1>Hi, I'm <span class="highlight">Callum!</span></h1>
-    <h1>Welcome to my portfolio.</h1>
-  </div>
-  <div class="btn continue-button">
-    <CommonButton />
+  <div class="home-container">
+    <div>
+      <h1>Hi, I'm <span class="highlight">Callum!</span></h1>
+      <h1>Welcome to my portfolio.</h1>
+    </div>
+    <div class="home-button">
+      <CommonButton>Continue</CommonButton>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.welcome-message {
+.home-container {
   margin: 2rem;
+}
+
+.home-button {
+  margin-top: 2rem;
 }
 
 h1 {

@@ -8,7 +8,7 @@ import ContactForm from '@/components/contact/ContactForm.vue'
     Have a question for me? Want to work together on a project? Just want to say hi? Send me an
     email with the form below and I'll be in touch ASAP!
   </p>
-  <ContactForm></ContactForm>
+  <ContactForm />
 </template>
 
 <style scoped>

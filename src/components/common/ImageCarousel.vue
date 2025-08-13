@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-const props = defineProps<{ images: unknown[] }>()
+const props = defineProps<{ images: string[] }>()
 const doubledImages = computed(() => [...(props.images ?? []), ...(props.images ?? [])])
 </script>
 

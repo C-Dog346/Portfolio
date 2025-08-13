@@ -12,14 +12,6 @@ body {
   background-color: var(--background-color);
 }
 
-.btn {
-  background-color: var(--soft-green);
-}
-
-.btn:hover {
-  background-color: var(--soft-green-dark);
-}
-
 #app {
   max-width: 1280px;
   margin: 0 auto;
