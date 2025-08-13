@@ -57,7 +57,7 @@ textarea {
   max-width: 60%;
   background-color: #111213;
   color: var(--primary-text-color);
-  caret-color: var(--secondary-color);
+  caret-color: var(--secondary-text-color);
 }
 
 textarea {
@@ -90,7 +90,7 @@ button::before {
   left: -95%;
   width: 100%;
   height: 100%;
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-text-color);
   transition: left 0.5s ease;
   z-index: -1;
 }
@@ -106,7 +106,7 @@ button::after {
   right: -95%;
   width: 100%;
   height: 100%;
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-text-color);
   transition: right 0.5s ease;
   z-index: -1;
 }
