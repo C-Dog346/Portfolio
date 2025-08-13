@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-const props = defineProps({ images: Array })
-const doubledImages = computed(() => [...props.images, ...props.images])
+const props = defineProps<{ images: unknown[] }>()
+const doubledImages = computed(() => [...(props.images ?? []), ...(props.images ?? [])])
 </script>
 
 <template>
   <div class="carousel">
     <div class="carousel-track">
-      <img v-for="(image, i) in doubledImages" :key="i" :src="image" alt="" />
+      <img v-for="(image, i) in doubledImages" :key="i" :src="String(image)" alt="" />
     </div>
   </div>
 </template>

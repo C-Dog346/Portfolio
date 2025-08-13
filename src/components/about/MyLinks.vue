@@ -1,10 +1,10 @@
 <script setup lang="ts">
-defineProps({
-  links: {
-    type: Array,
-    required: true
-  }
-})
+interface Link {
+  name: string
+  url: string
+  image: string
+}
+const { links } = defineProps<{ links: Link[] }>()
 </script>
 
 <template>
