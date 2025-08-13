@@ -1,6 +1,6 @@
 <script setup>
 import ImageCarousel from '@/components/common/ImageCarousel.vue'
-import MyLinks from '@/components/common/MyLinks.vue'
+import MyLinks from '@/components/about/MyLinks.vue'
 import technologies from '@/assets/data/technologies/technologies.json'
 import aboutText from '@/assets/data/aboutText.json'
 
