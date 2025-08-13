@@ -2,28 +2,31 @@
 import { ref, type Ref } from 'vue'
 import emailjs from '@emailjs/browser'
 
-const form: Ref<HTMLFormElement | null> = ref(null)
-
 const SERVICE_ID = 'service_5cba85g'
 const TEMPLATE_ID = 'contact_form'
 const PUBLIC_KEY = 'f-k6FbmkYdrA0tDFr'
 const STATUS_SUCCESS = 'Your message has been sent!'
 const STATUS_ERROR = 'There was an error sending your message. Please try again later.'
 
+const form: Ref<HTMLFormElement | null> = ref(null)
+
+const statusMessage = ref('')
+const statusType = ref<'success' | 'error' | ''>('')
+
 const sendEmail = async () => {
   if (!form.value) return
-  const messageDiv = form.value.querySelector('.status-message')
-  if (!messageDiv) return
+  statusMessage.value = ''
+  statusType.value = ''
   try {
     await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.value, {
       publicKey: PUBLIC_KEY
     })
     form.value.reset()
-    messageDiv.classList.add('success')
-    messageDiv.innerHTML = STATUS_SUCCESS
+    statusType.value = 'success'
+    statusMessage.value = STATUS_SUCCESS
   } catch (error: any) {
-    messageDiv.classList.add('error')
-    messageDiv.innerHTML = STATUS_ERROR
+    statusType.value = 'error'
+    statusMessage.value = STATUS_ERROR
   }
 }
 </script>
@@ -37,7 +40,9 @@ const sendEmail = async () => {
     <div class="submit-button">
       <button type="submit" value="Send">Submit</button>
     </div>
-    <div class="status-message"></div>
+    <div class="status-message" :class="statusType" v-if="statusMessage">
+      {{ statusMessage }}
+    </div>
   </form>
 </template>
 
