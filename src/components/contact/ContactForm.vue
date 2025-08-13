@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, type Ref } from 'vue'
 import emailjs from '@emailjs/browser'
+import CommonButton from '@/components/common/CommonButton.vue'
 
 const SERVICE_ID = 'service_5cba85g'
 const TEMPLATE_ID = 'contact_form'
@@ -38,7 +39,7 @@ const sendEmail = async () => {
     <input type="organisation" id="user_organisation" placeholder="Organisation" />
     <textarea name="message" placeholder="Message *" required></textarea>
     <div class="submit-button">
-      <button type="submit" value="Send">Submit</button>
+      <CommonButton type="submit">Submit</CommonButton>
     </div>
     <div class="status-message" :class="statusType" v-if="statusMessage">
       {{ statusMessage }}
