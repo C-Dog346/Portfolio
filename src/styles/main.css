@@ -1,0 +1,35 @@
+:root {
+  /* Colors */
+  --primary-text-color: #dcdcdc;
+  --secondary-color: #a30101;
+  --neon-green: #00ff00;
+  --background-color: #181a1b;
+  --soft-green: #17ab30;
+  --soft-green-dark: #17ab30b8;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.btn {
+  background-color: var(--soft-green);
+}
+
+.btn:hover {
+  background-color: var(--soft-green-dark);
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+  font-family: 'Roboto', sans-serif;
+  color: var(--primary-text-color);
+  background-color: var(--background-color);
+}
+
+.highlight {
+  color: var(--secondary-color);
+}

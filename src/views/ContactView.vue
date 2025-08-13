@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import ContactForm from '@/components/ContactForm.vue';
+import ContactForm from '@/components/contact/ContactForm.vue';
 
 const name = ref('');
 const email = ref('');

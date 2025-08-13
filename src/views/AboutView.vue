@@ -1,55 +1,82 @@
 <script setup>
-import ImageBanner from '@/components/ImageBanner.vue';
-import technologies from '@/assets/data/technologies/technologies.json';
+import ImageCarousel from '@/components/common/ImageCarousel.vue'
+import MyLinks from '@/components/about/MyLinks.vue'
+import technologies from '@/assets/data/technologies/technologies.json'
+import aboutText from '@/assets/data/aboutText.json'
+
+const aboutMeLines = aboutText.aboutMe.split('\n')
+const futureGoalsLines = aboutText.futureGoals.split('\n')
+
+const technologyImages = technologies.map((t) => t.image)
+
+const links = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/your-linkedin-profile',
+    image:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg'
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/your-github-username',
+    image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg'
+  }
+]
 </script>
 <template>
   <div class="about">
     <div class="so-far">
-      <h1>About me <span class="highlight">so far</span>.</h1>
+      <h1>About me <span class="highlight">so far.</span></h1>
       <p class="blurb">
-        I became a software developer to quench my thirst for problem solving. All through both my
-        professional and personal life, I have found that I love to learn.
-        <br>
-        <br>
-        Throughout uni and my internship I fell in love with working in teams and interacting with people.
-        <br>
-        <br>
-        In my spare time I enjoy playing video games, reading books and manga, and hang with my friends.
-        I do martial arts, learn languages, walk my dog and go to the gym.
+        <span v-for="(line, idx) in aboutMeLines" :key="'aboutMe-' + idx">
+          {{ line }}
+          <!-- Will add a new line where there is a '\n', except for the last line. -->
+          <br v-if="idx !== aboutMeLines.length - 1" />
+        </span>
       </p>
     </div>
     <div class="image-container">
       <img src="../assets/Callum_Selfie.jpg" alt="Selfie" class="selfie" />
     </div>
     <div class="future">
-      <h1> My <span class="highlight">future goals</span>.</h1>
+      <h1>My <span class="highlight">future goals.</span></h1>
       <p class="blurb">
-        I am currently working on improving my skills with Vue.js and learning more about back-end development.
-        <br>
-        <br>
-        I hope to join a team where I can continue to learn, grow and make new connections with people.
-        <br>
-        <br>
-        One day I will manage my own team and help others grow in their careers. Leadership is my passion;
-        I love to work with people and help make a difference.
+        <span v-for="(line, idx) in futureGoalsLines" :key="'futureGoals-' + idx">
+          {{ line }}
+          <!-- Will add a new line where there is a '\n', except for the last line. -->
+          <br v-if="idx !== futureGoalsLines.length - 1" />
+        </span>
       </p>
     </div>
   </div>
-  <ImageBanner :title="'My Technologies'"  :images="technologies"></ImageBanner>
+  <div>
+    <div></div>
+    <div></div>
+  </div>
+  <MyLinks :links="links" class="my-links" />
+  <ImageCarousel class="imageCarousel" :images="technologyImages" />
 </template>
 
 <style>
 .about {
-  margin: 2rem;
+  margin-top: 2rem;
   display: flex;
-  justify-content: center; 
-  align-items: flex-start; 
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .blurb {
   font-size: 1.25rem;
-  color: var(--text-color);
+  color: var(--primary-text-color);
   max-width: 1000px;
+}
+
+h1 {
+  margin: 0rem;
+}
+
+.imageCarousel {
+  margin-top: 2rem;
 }
 
 .selfie {
@@ -60,6 +87,12 @@ import technologies from '@/assets/data/technologies/technologies.json';
 }
 
 .image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.my-links {
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
 }
