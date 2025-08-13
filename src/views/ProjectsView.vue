@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import ProjectExample from '@/components/projects/ProjectExample.vue'
 import projects from '../../public/data/projects/projects.json'
 </script>

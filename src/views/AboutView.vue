@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import ImageCarousel from '@/components/common/ImageCarousel.vue'
 import MyLinks from '@/components/about/MyLinks.vue'
 import technologies from '@/assets/data/technologies/technologies.json'
