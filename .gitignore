@@ -29,3 +29,23 @@ coverage
 
 test-results/
 playwright-report/
+
+# Vite/Vue build output
+dist/
+*.env
+*.env.*
+
+# Windows/macOS system files
+Thumbs.db
+ehthumbs.db
+Icon?
+._*
+
+# VS Code settings (except recommended extensions)
+/.vscode/settings.json
+/.vscode/launch.json
+
+# npm package lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
