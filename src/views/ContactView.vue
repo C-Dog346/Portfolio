@@ -1,24 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import ContactForm from '@/components/contact/ContactForm.vue'
-
-const name = ref('')
-const email = ref('')
-const organisation = ref('')
-const message = ref('')
-
-// Submit function
-const submitForm = () => {
-  // Get the form data
-  const formData = {
-    name: name.value,
-    email: email.value,
-    organisation: organisation.value,
-    message: message.value
-  }
-  // Log the form data
-  console.log(formData)
-}
 </script>
 
 <template>
