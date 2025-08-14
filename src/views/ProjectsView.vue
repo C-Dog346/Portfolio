@@ -32,6 +32,9 @@ ul {
 }
 
 .project-item {
-  margin: 1rem;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
 }
 </style>
