@@ -32,7 +32,6 @@ ul {
 }
 
 .project-item {
-  border: 1px solid var(--neon-green);
   margin: 1rem;
 }
 </style>

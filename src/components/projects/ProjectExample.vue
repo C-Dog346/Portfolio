@@ -31,8 +31,8 @@ const props = defineProps({
         ><img class="icon" src="../assets/GitHubLogo.png" alt="GitHub project link"
       /></a>
     </div>
-    <div style="border: 1px solid black; margin-top: 1rem; margin-bottom: 1rem"></div>
   </div>
+  <hr style="margin: 1rem 0" />
 </template>
 
 <style scoped>
@@ -41,12 +41,12 @@ const props = defineProps({
   flex-direction: column;
   padding: 1rem;
 }
-
-/* .project-name {
-} */
+.project-name {
+  border-bottom: 0.1rem solid lime;
+}
 
 .image {
-  border: 1px solid var(--border-color);
+  border: 1px solid lime;
 }
 
 img {

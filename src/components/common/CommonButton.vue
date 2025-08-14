@@ -40,26 +40,28 @@ function onClick(event: Event) {
 }
 .common-button::before,
 .common-button::after {
-  content: '';
   position: absolute;
-  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 0;
   background: var(--secondary-text-color);
-  transition: all 0.5s;
+  transition: height 0.5s;
   z-index: -1;
+  pointer-events: none;
 }
 .common-button::before {
-  left: -95%;
-}
-.common-button:hover::before {
-  left: -50%;
+  top: 0;
 }
 .common-button::after {
-  right: -95%;
+  bottom: 0;
 }
-.common-button:hover::after {
-  right: -50%;
+.common-button:hover::before,
+.common-button:focus-visible::before {
+  height: 50%;
+}
+.common-button:hover::after,
+.common-button:focus-visible::after {
+  height: 50%;
 }
 .common-button:disabled {
   opacity: 0.6;

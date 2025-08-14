@@ -1,11 +1,10 @@
 :root {
-  /* Colors */
-  --primary-text-color: #dcdcdc;
-  --secondary-text-color: #a30101;
-  --neon-green: #00ff00;
+  /* Text Colors */
+  --primary-text-color: gainsboro;
+  --secondary-text-color: darkred;
+
+  /* Misc. Colors */
   --background-color: #181a1b;
-  --soft-green: #17ab30;
-  --soft-green-dark: #17ab30b8;
 }
 
 body {

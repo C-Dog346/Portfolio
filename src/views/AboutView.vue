@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import ImageCarousel from '@/components/common/ImageCarousel.vue'
 import MyLinks from '@/components/about/MyLinks.vue'
-import technologies from '@/assets/data/technologies/technologies.json'
-import aboutText from '@/assets/data/aboutText.json'
+import technologies from '@/lib/data/technologies/technologies.json'
+import aboutText from '@/lib/data/aboutText.json'
 
 const aboutMeLines = aboutText.aboutMe.split('\n')
 const futureGoalsLines = aboutText.futureGoals.split('\n')
@@ -36,7 +36,7 @@ const links = [
       </p>
     </div>
     <div class="image-container">
-      <img src="../assets/Callum_Selfie.jpg" alt="Selfie" class="selfie" />
+      <img src="../lib/data/Callum_Selfie.jpg" alt="Selfie" class="selfie" />
     </div>
     <div class="future">
       <h1>My <span class="highlight">future goals.</span></h1>
@@ -82,7 +82,6 @@ h1 {
 .selfie {
   max-width: 60%;
   max-height: 60%;
-  border: 2px solid var(--border-color);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
 }
 
