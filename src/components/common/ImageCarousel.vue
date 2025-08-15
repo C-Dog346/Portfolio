@@ -1,14 +1,19 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 
-const props = defineProps({ images: Array })
-const doubledImages = computed(() => [...props.images, ...props.images])
+type LinkItem = { image: string; name?: string; url?: string }
+
+const props = defineProps<{ items: LinkItem[] }>()
+const doubledItems = computed<LinkItem[]>(() => [...(props.items ?? []), ...(props.items ?? [])])
 </script>
 
 <template>
   <div class="carousel">
     <div class="carousel-track">
-      <img v-for="(image, i) in doubledImages" :key="i" :src="image" alt="" />
+      <div v-for="(item, i) in doubledItems" :key="i" class="carousel-item">
+        <img :src="String(item.image)" :alt="String(item.name)" />
+        {{ item.name }}
+      </div>
     </div>
   </div>
 </template>
@@ -26,14 +31,17 @@ const doubledImages = computed(() => [...props.images, ...props.images])
     transparent 100%
   );
 }
-
 .carousel-track {
   display: flex;
   gap: 2rem;
-  animation: scroll 40s linear infinite;
+  animation: scroll 30s linear infinite;
   width: max-content;
 }
-
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .carousel img {
   width: min(100px, 20vw);
   height: auto;

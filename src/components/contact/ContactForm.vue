@@ -1,28 +1,34 @@
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+import { ref, type Ref } from 'vue'
 import emailjs from '@emailjs/browser'
+import CommonButton from '@/components/common/CommonButton.vue'
 
-const form = ref(null)
+const SERVICE_ID = 'service_5cba85g'
+const TEMPLATE_ID = 'contact_form'
+const PUBLIC_KEY = 'f-k6FbmkYdrA0tDFr'
+const STATUS_SUCCESS = 'Your message has been sent!'
+const STATUS_ERROR = 'There was an error sending your message. Please try again later.'
 
-const sendEmail = () => {
-  let messageDiv = form.value.querySelector('.status-message')
-  emailjs
-    .sendForm('service_5cba85g', 'contact_form', form.value, {
-      publicKey: 'f-k6FbmkYdrA0tDFr'
+const form: Ref<HTMLFormElement | null> = ref(null)
+
+const statusMessage = ref('')
+const statusType = ref<'success' | 'error' | ''>('')
+
+const sendEmail = async () => {
+  if (!form.value) return
+  statusMessage.value = ''
+  statusType.value = ''
+  try {
+    await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.value, {
+      publicKey: PUBLIC_KEY
     })
-    .then(
-      () => {
-        console.log('SUCCESS!')
-        form.value.reset()
-        messageDiv.classList.add('success')
-        messageDiv.innerHTML = 'Your message has been sent!'
-      },
-      (error) => {
-        console.log('FAILED...', error.text)
-        messageDiv.classList.add('error')
-        messageDiv.innerHTML = 'There was an error sending your message. Please try again later.'
-      }
-    )
+    form.value.reset()
+    statusType.value = 'success'
+    statusMessage.value = STATUS_SUCCESS
+  } catch (error: any) {
+    statusType.value = 'error'
+    statusMessage.value = STATUS_ERROR
+  }
 }
 </script>
 
@@ -33,9 +39,11 @@ const sendEmail = () => {
     <input type="organisation" id="user_organisation" placeholder="Organisation" />
     <textarea name="message" placeholder="Message *" required></textarea>
     <div class="submit-button">
-      <button type="submit" value="Send">Submit</button>
+      <CommonButton type="submit">Submit</CommonButton>
     </div>
-    <div class="status-message"></div>
+    <div class="status-message" :class="statusType" v-if="statusMessage">
+      {{ statusMessage }}
+    </div>
   </form>
 </template>
 
@@ -57,7 +65,7 @@ textarea {
   max-width: 60%;
   background-color: #111213;
   color: var(--primary-text-color);
-  caret-color: var(--secondary-color);
+  caret-color: var(--secondary-text-color);
 }
 
 textarea {
@@ -81,38 +89,6 @@ button {
   z-index: 1;
   border: transparent;
   border-radius: 8px;
-}
-
-button::before {
-  content: '';
-  position: absolute;
-  top: 0%;
-  left: -95%;
-  width: 100%;
-  height: 100%;
-  background-color: var(--secondary-color);
-  transition: left 0.5s ease;
-  z-index: -1;
-}
-
-button:hover::before {
-  left: -50%;
-}
-
-button::after {
-  content: '';
-  position: absolute;
-  top: 0%;
-  right: -95%;
-  width: 100%;
-  height: 100%;
-  background-color: var(--secondary-color);
-  transition: right 0.5s ease;
-  z-index: -1;
-}
-
-button:hover::after {
-  right: -50%;
 }
 
 .status-message {

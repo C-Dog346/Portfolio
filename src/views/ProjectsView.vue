@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import ProjectExample from '@/components/projects/ProjectExample.vue'
 import projects from '../../public/data/projects/projects.json'
 </script>
@@ -32,7 +32,9 @@ ul {
 }
 
 .project-item {
-  border: 1px solid var(--neon-green);
-  margin: 1rem;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
 }
 </style>

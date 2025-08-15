@@ -22,7 +22,7 @@ nav {
   justify-content: space-around;
   padding: 1rem;
   background-color: #791f1f00;
-  border: 1px solid var(--neon-green);
+  border: 1px solid lime;
   color: var(--primary-text-color);
 }
 
@@ -30,5 +30,9 @@ nav {
   color: var(--primary-text-color);
   text-decoration: none;
   font-size: 1.5rem;
+}
+.links:hover {
+  color: var(--secondary-text-color);
+  transition: color 0.2s;
 }
 </style>
