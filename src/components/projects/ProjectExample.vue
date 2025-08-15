@@ -28,7 +28,7 @@ const props = defineProps({
     <p class="description">{{ props.description }}</p>
     <div class="links">
       <a :href="props.github" target="_blank" title="GitHub Project Link"
-        ><img class="icon" src="../../lib/data/GitHubLogo.png" alt="GitHub Project Link"
+        ><img class="icon" src="@/lib/data/GitHubLogo.png" alt="GitHub Project Link"
       /></a>
     </div>
   </div>

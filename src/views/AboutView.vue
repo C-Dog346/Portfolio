@@ -1,6 +1,6 @@
-<script setup>
-import ImageBanner from '@/components/ImageBanner.vue'
-import technologies from '@/assets/data/technologies/technologies.json'
+<script setup lang="ts">
+import ImageCarousel from '@/components/common/ImageCarousel.vue'
+import technologies from '@/lib/data/technologies/technologies.json'
 </script>
 <template>
   <div class="about">
@@ -20,7 +20,7 @@ import technologies from '@/assets/data/technologies/technologies.json'
       </p>
     </div>
     <div class="image-container">
-      <img src="../lib/data/Callum_Selfie.jpg" alt="Selfie" class="selfie" />
+      <img src="@/lib/data/Callum_Selfie.jpg" alt="Selfie" class="selfie" />
     </div>
     <div class="future">
       <h1>My <span class="highlight">future goals</span>.</h1>
@@ -38,7 +38,7 @@ import technologies from '@/assets/data/technologies/technologies.json'
       </p>
     </div>
   </div>
-  <ImageBanner :title="'My Technologies'" :images="technologies"></ImageBanner>
+  <ImageCarousel :items="technologies"></ImageCarousel>
 </template>
 
 <style scoped>
