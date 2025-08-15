@@ -91,38 +91,6 @@ button {
   border-radius: 8px;
 }
 
-button::before {
-  content: '';
-  position: absolute;
-  top: 0%;
-  left: -95%;
-  width: 100%;
-  height: 100%;
-  background-color: var(--secondary-text-color);
-  transition: left 0.5s ease;
-  z-index: -1;
-}
-
-button:hover::before {
-  left: -50%;
-}
-
-button::after {
-  content: '';
-  position: absolute;
-  top: 0%;
-  right: -95%;
-  width: 100%;
-  height: 100%;
-  background-color: var(--secondary-text-color);
-  transition: right 0.5s ease;
-  z-index: -1;
-}
-
-button:hover::after {
-  right: -50%;
-}
-
 .status-message {
   margin-top: 10px;
 }

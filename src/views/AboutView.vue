@@ -47,10 +47,6 @@ const links = [
       </p>
     </div>
   </div>
-  <div>
-    <div></div>
-    <div></div>
-  </div>
   <MyLinks :links="links" class="my-links" />
   <ImageCarousel class="imageCarousel" :items="technologies" />
 </template>
