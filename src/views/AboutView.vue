@@ -7,8 +7,6 @@ import aboutText from '@/lib/data/aboutText.json'
 const aboutMeLines = aboutText.aboutMe.split('\n')
 const futureGoalsLines = aboutText.futureGoals.split('\n')
 
-const technologyImages = technologies.map((t) => t.image)
-
 const links = [
   {
     name: 'LinkedIn',
@@ -54,7 +52,7 @@ const links = [
     <div></div>
   </div>
   <MyLinks :links="links" class="my-links" />
-  <ImageCarousel class="imageCarousel" :images="technologyImages" />
+  <ImageCarousel class="imageCarousel" :items="technologies" />
 </template>
 
 <style>

@@ -31,4 +31,8 @@ nav {
   text-decoration: none;
   font-size: 1.5rem;
 }
+.links:hover {
+  color: var(--secondary-text-color);
+  transition: color 0.2s;
+}
 </style>
