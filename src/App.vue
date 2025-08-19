@@ -6,21 +6,8 @@ import ProjectsView from '@/views/ProjectsView.vue'
 import ContactView from '@/views/ContactView.vue'
 import NavBar from '@/components/common/NavBar.vue'
 
-const isScrolled = ref(false)
 const activeSection = ref('home')
 
-const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId)
-  if (element) {
-    const navbarHeight = 80
-    const targetPosition = element.offsetTop - navbarHeight
-
-    window.scrollTo({
-      top: targetPosition,
-      behavior: 'smooth'
-    })
-  }
-}
 
 const updateActiveSection = () => {
   const sections = ['home', 'about', 'projects', 'contact']
@@ -41,7 +28,6 @@ const updateActiveSection = () => {
 }
 
 const handleScroll = () => {
-  isScrolled.value = window.scrollY > 50
   updateActiveSection()
 }
 
@@ -61,13 +47,8 @@ onUnmounted(() => {
       <HomeView />
     </section>
 
-    <!-- Full-bleed sticky wrapper to keep NavBar between sections and span viewport -->
     <div class="nav-wrapper">
-      <NavBar
-        :is-scrolled="isScrolled"
-        :active-section="activeSection"
-        @navigate="scrollToSection"
-      />
+      <NavBar :active-section="activeSection" />
     </div>
 
     <section id="about" class="section">
@@ -92,6 +73,7 @@ onUnmounted(() => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  scroll-margin-top: 80px;
 }
 
 .section:nth-child(even) {
@@ -107,7 +89,7 @@ onUnmounted(() => {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   box-sizing: border-box;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .main-content {
