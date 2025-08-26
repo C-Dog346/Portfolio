@@ -80,7 +80,6 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.02);
 }
 
-/* Full-bleed sticky wrapper for NavBar */
 .nav-wrapper {
   position: sticky;
   top: 0;

@@ -43,10 +43,10 @@ import technologies from '@/lib/data/technologies/technologies.json'
 
 <style scoped>
 .about {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: 1fr minmax(240px, 360px) 1fr;
+  align-items: stretch;
   gap: 3rem;
   max-width: 1200px;
   width: 100%;
@@ -54,7 +54,6 @@ import technologies from '@/lib/data/technologies/technologies.json'
 
 .so-far,
 .future {
-  text-align: center;
   max-width: 800px;
 }
 
@@ -86,8 +85,6 @@ h1 {
 }
 
 .selfie {
-  max-width: 300px;
-  max-height: 300px;
   width: 100%;
   height: auto;
   border-radius: 15px;
@@ -95,8 +92,9 @@ h1 {
 }
 
 .image-container {
-  display: flex;
-  justify-content: center;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .my-links {
@@ -107,8 +105,25 @@ h1 {
 
 @media (max-width: 768px) {
   .about {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     margin-top: 1rem;
+  }
+
+  .so-far,
+  .future {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .selfie {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+    max-height: 250px;
+    object-fit: cover;
   }
 
   h1 {
@@ -117,11 +132,6 @@ h1 {
 
   .blurb {
     font-size: 1.1rem;
-  }
-
-  .selfie {
-    max-width: 250px;
-    max-height: 250px;
   }
 }
 </style>
