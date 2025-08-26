@@ -1,44 +1,43 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-import HomeView from '@/views/HomeView.vue'
-import AboutView from '@/views/AboutView.vue'
-import ProjectsView from '@/views/ProjectsView.vue'
-import ContactView from '@/views/ContactView.vue'
-import NavBar from '@/components/common/NavBar.vue'
+import { ref, onMounted, onUnmounted } from "vue";
+import HomeView from "@/views/HomeView.vue";
+import AboutView from "@/views/AboutView.vue";
+import ProjectsView from "@/views/ProjectsView.vue";
+import ContactView from "@/views/ContactView.vue";
+import NavBar from "@/components/common/NavBar.vue";
 
-const activeSection = ref('home')
-
+const activeSection = ref("home");
 
 const updateActiveSection = () => {
-  const sections = ['home', 'about', 'projects', 'contact']
-  const scrollPosition = window.scrollY + 100
+  const sections = ["home", "about", "projects", "contact"];
+  const scrollPosition = window.scrollY + 100;
 
   for (const sectionId of sections) {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      const sectionTop = element.offsetTop
-      const sectionBottom = sectionTop + element.offsetHeight
+      const sectionTop = element.offsetTop;
+      const sectionBottom = sectionTop + element.offsetHeight;
 
       if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-        activeSection.value = sectionId
-        break
+        activeSection.value = sectionId;
+        break;
       }
     }
   }
-}
+};
 
 const handleScroll = () => {
-  updateActiveSection()
-}
+  updateActiveSection();
+};
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-  updateActiveSection()
-})
+  window.addEventListener("scroll", handleScroll);
+  updateActiveSection();
+});
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <template>
@@ -71,13 +70,8 @@ onUnmounted(() => {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   scroll-margin-top: 80px;
-}
-
-.section:nth-child(even) {
-  background: rgba(255, 255, 255, 0.02);
 }
 
 .nav-wrapper {
