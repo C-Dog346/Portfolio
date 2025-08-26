@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import ContactForm from '@/components/contact/ContactForm.vue'
+import ContactForm from "@/components/contact/ContactForm.vue";
 </script>
 
 <template>
   <div class="contact-view">
     <h1>Contact</h1>
     <p class="contact-details">
-      Have a question for me? Want to work together on a project? Just want to say hi? Send me an
-      email with the form below and I'll be in touch ASAP!
+      Have a question for me? Want to work together on a project? Just want to
+      say hi? Send me an email with the form below and I'll be in touch ASAP!
     </p>
     <ContactForm />
   </div>
