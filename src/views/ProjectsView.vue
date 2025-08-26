@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ProjectExample from '@/components/projects/ProjectExample.vue'
-import projects from '@/lib/data/projects/projects.json'
+import ProjectExample from "@/components/projects/ProjectExample.vue";
+import projects from "@/lib/data/projects/projects.json";
 </script>
 
 <template>
@@ -23,7 +23,6 @@ import projects from '@/lib/data/projects/projects.json'
 .projects-view {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   max-width: 1200px;
   padding: 2rem;
@@ -47,7 +46,7 @@ ul {
 }
 
 .project-item {
-  display: flex;
+  display: block;
   justify-content: center;
   width: 100%;
 }
