@@ -1,11 +1,20 @@
 <script setup lang="ts">
-import { toRef } from 'vue'
+import { ref, toRef } from "vue";
 
 const props = defineProps<{
-  activeSection?: string
-}>()
+  activeSection?: string;
+}>();
 
-const activeSection = toRef(props, 'activeSection')
+const isMenuOpen = ref(false);
+const activeSection = toRef(props, "activeSection");
+
+const toggleMenuOpen = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+
+const updateActiveSection = (section: string) => {
+  activeSection.value = section;
+};
 </script>
 
 <template>
@@ -54,7 +63,9 @@ const activeSection = toRef(props, 'activeSection')
   background: rgba(24, 26, 27, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(169, 169, 169, 0.1);
-  transition: all 0.3s ease, padding 0.2s;
+  transition:
+    all 0.3s ease,
+    padding 0.2s;
 }
 
 .nav-link {
@@ -78,7 +89,7 @@ const activeSection = toRef(props, 'activeSection')
 }
 
 .nav-link.active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 50%;

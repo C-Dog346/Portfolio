@@ -18,9 +18,7 @@ import ContactForm from "@/components/contact/ContactForm.vue";
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   width: 100%;
-  max-width: 800px;
   padding: 2rem;
 }
 
@@ -31,7 +29,7 @@ h1 {
 }
 
 .contact-details {
-  max-width: 600px;
+  max-width: 80%;
   line-height: 1.6;
   font-size: 1.2rem;
   margin-bottom: 2rem;

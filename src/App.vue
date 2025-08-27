@@ -84,7 +84,6 @@ onUnmounted(() => {
   box-sizing: border-box;
   z-index: 100;
 }
-
 .main-content {
   padding-left: 0;
   padding-right: 0;
@@ -94,9 +93,5 @@ onUnmounted(() => {
   .section {
     padding: 1rem;
   }
-}
-.links:hover {
-  color: var(--secondary-text-color);
-  transition: color 0.2s;
 }
 </style>
