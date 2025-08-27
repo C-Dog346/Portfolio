@@ -9,21 +9,15 @@ const isMenuOpen = ref(false);
 const activeSection = toRef(props, "activeSection");
 
 const navItems = [
-  { href: "#home", label: "Home", section: "Home" },
-  { href: "#about", label: "About", section: "About" },
-  { href: "#projects", label: "Projects", section: "Projects" },
-  { href: "#contact", label: "Contact", section: "Contact" }
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" }
 ];
 
-const toggleMenuOpen = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-};
-
-const closeMenu = () => {
-  isMenuOpen.value = false;
-};
-
-const isActive = (section: string) => activeSection.value === section;
+const toggleMenuOpen = () => (isMenuOpen.value = !isMenuOpen.value);
+const closeMenu = () => (isMenuOpen.value = false);
+const isActive = (label: string) => activeSection.value === label;
 </script>
 
 <template>
@@ -32,10 +26,10 @@ const isActive = (section: string) => activeSection.value === section;
     <div class="desktop">
       <a
         v-for="item in navItems"
-        :key="item.section"
+        :key="item.label"
         :href="item.href"
-        :class="['nav-link', { active: isActive(item.section) }]"
-        :aria-current="isActive(item.section) ? 'page' : undefined"
+        :class="['nav-link', { active: isActive(item.label) }]"
+        :aria-current="isActive(item.label) ? 'page' : undefined"
       >
         {{ item.label }}
       </a>
@@ -60,10 +54,10 @@ const isActive = (section: string) => activeSection.value === section;
         <div v-if="isMenuOpen" class="mobile-menu">
           <a
             v-for="item in navItems"
-            :key="item.section"
+            :key="item.label"
             :href="item.href"
-            :class="['nav-link', { active: isActive(item.section) }]"
-            :aria-current="isActive(item.section) ? 'page' : undefined"
+            :class="['nav-link', { active: isActive(item.label) }]"
+            :aria-current="isActive(item.label) ? 'page' : undefined"
             @click="closeMenu"
           >
             {{ item.label }}
@@ -137,7 +131,7 @@ const isActive = (section: string) => activeSection.value === section;
 .bar {
   width: 100%;
   height: 3px;
-  background-color: var(--primary-text-color);
+  background: var(--primary-text-color);
   border-radius: 2px;
   transition: all 0.3s ease;
   margin: 3px 0;
