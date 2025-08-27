@@ -90,14 +90,9 @@ h1 {
 }
 
 .image-container {
-  display: block;
+  display: flex;
   width: 100%;
   height: 100%;
-}
-
-.my-links {
-  margin-top: 2rem;
-  display: flex;
   justify-content: center;
 }
 

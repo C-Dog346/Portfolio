@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from "vue";
 
-type LinkItem = { image: string; name?: string; url?: string }
+type LinkItem = { image: string; name?: string; url?: string };
 
-const props = defineProps<{ items: LinkItem[] }>()
-const doubledItems = computed<LinkItem[]>(() => [...(props.items ?? []), ...(props.items ?? [])])
+const props = defineProps<{ items: LinkItem[] }>();
+const doubledItems = computed<LinkItem[]>(() => [
+  ...(props.items ?? []),
+  ...(props.items ?? [])
+]);
 </script>
 
 <template>
@@ -30,6 +33,7 @@ const doubledItems = computed<LinkItem[]>(() => [...(props.items ?? []), ...(pro
     var(--background-color) 90%,
     transparent 100%
   );
+  margin-top: 2rem;
 }
 .carousel-track {
   display: flex;

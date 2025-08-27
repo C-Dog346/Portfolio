@@ -6,14 +6,14 @@ import ProjectsView from "@/views/ProjectsView.vue";
 import ContactView from "@/views/ContactView.vue";
 import NavBar from "@/components/common/NavBar.vue";
 
-const activeSection = ref("home");
+const activeSection = ref("Home");
 
 const updateActiveSection = () => {
-  const sections = ["home", "about", "projects", "contact"];
+  const sections = ["Home", "About", "Projects", "Contact"];
   const scrollPosition = window.scrollY + 100;
 
   for (const sectionId of sections) {
-    const element = document.getElementById(sectionId);
+    const element = document.getElementById(sectionId.toLowerCase());
     if (element) {
       const sectionTop = element.offsetTop;
       const sectionBottom = sectionTop + element.offsetHeight;
