@@ -11,7 +11,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps<{
   type?: 'button' | 'submit' | 'reset'
@@ -49,7 +48,7 @@ function onClick(event: Event) {
   width: 100%;
   height: 50%;
   background: var(--secondary-text-color);
-  transform: scaleY(0);
+  transform: scaleY(0.2);
   transition: transform 0.4s ease;
   pointer-events: none;
   z-index: 1;
@@ -75,7 +74,7 @@ function onClick(event: Event) {
   height: 100%;
   width: 50%;
   background: var(--secondary-text-color);
-  transform: scaleX(0);
+  transform: scaleX(0.1);
   transition: transform 0.4s ease;
 }
 .fills-x::before {

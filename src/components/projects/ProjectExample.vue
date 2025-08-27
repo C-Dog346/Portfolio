@@ -16,7 +16,7 @@ const props = defineProps({
     type: String,
     required: true
   }
-})
+});
 </script>
 
 <template>
@@ -28,7 +28,11 @@ const props = defineProps({
     <p class="description">{{ props.description }}</p>
     <div class="links">
       <a :href="props.github" target="_blank" title="GitHub Project Link"
-        ><img class="icon" src="../../lib/data/GitHubLogo.png" alt="GitHub Project Link"
+        >Check out the project!
+        <img
+          class="icon"
+          src="@/lib/data/GitHubLogo.png"
+          alt="GitHub Project Link"
       /></a>
     </div>
   </div>
@@ -115,10 +119,10 @@ p.description {
   width: auto;
   height: auto;
   display: inline;
+  margin-left: 0.5rem;
 }
-.icon:hover {
+a:hover .icon {
   filter: drop-shadow(0 0 8px darkred);
-  background: none;
 }
 
 .links {

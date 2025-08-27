@@ -1,38 +1,97 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { ref, onMounted, onUnmounted } from "vue";
+import HomeView from "@/views/HomeView.vue";
+import AboutView from "@/views/AboutView.vue";
+import ProjectsView from "@/views/ProjectsView.vue";
+import ContactView from "@/views/ContactView.vue";
+import NavBar from "@/components/common/NavBar.vue";
+
+const activeSection = ref("home");
+
+const updateActiveSection = () => {
+  const sections = ["home", "about", "projects", "contact"];
+  const scrollPosition = window.scrollY + 100;
+
+  for (const sectionId of sections) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const sectionTop = element.offsetTop;
+      const sectionBottom = sectionTop + element.offsetHeight;
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        activeSection.value = sectionId;
+        break;
+      }
+    }
+  }
+};
+
+const handleScroll = () => {
+  updateActiveSection();
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+  updateActiveSection();
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <template>
-  <header>
-    <nav>
-      <RouterLink to="/" class="links">Home</RouterLink>
-      <RouterLink to="/about" class="links">About</RouterLink>
-      <RouterLink to="/projects" class="links">Projects</RouterLink>
-      <RouterLink to="/contact" class="links">Contact</RouterLink>
-    </nav>
-  </header>
-  <main>
-    <RouterView />
+  <main class="main-content">
+    <section id="home" class="section">
+      <HomeView />
+    </section>
+
+    <div class="nav-wrapper">
+      <NavBar :active-section="activeSection" />
+    </div>
+
+    <section id="about" class="section">
+      <AboutView />
+    </section>
+
+    <section id="projects" class="section">
+      <ProjectsView />
+    </section>
+
+    <section id="contact" class="section">
+      <ContactView />
+    </section>
   </main>
 </template>
 
 <style scoped>
-nav {
+.section {
+  min-height: 100vh;
+  padding: 2rem;
   display: flex;
-  justify-content: space-around;
-  padding: 1rem;
-  background-color: #791f1f00;
-  border: 1px solid lime;
-  color: var(--primary-text-color);
+  flex-direction: column;
+  align-items: center;
+  scroll-margin-top: 80px;
 }
 
-.links {
-  color: var(--primary-text-color);
-  text-decoration: none;
-  font-size: 1.5rem;
+.nav-wrapper {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  box-sizing: border-box;
+  z-index: 100;
 }
-.links:hover {
-  color: var(--secondary-text-color);
-  transition: color 0.2s;
+.main-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 1rem;
+  }
 }
 </style>
