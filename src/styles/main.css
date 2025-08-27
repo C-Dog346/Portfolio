@@ -21,34 +21,9 @@ body {
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0;
+  padding: 2rem 0;
   font-weight: normal;
-  font-family: 'Roboto', sans-serif;
-  color: var(--primary-text-color);
-  background-color: var(--background-color);
-}
-
-.highlight {
-  color: var(--secondary-text-color);
-}
-
-:root {
-  /* Text Colors */
-  --primary-text-color: gainsboro;
-  --secondary-text-color: darkred;  /* Misc. Colors */
-  --background-color: #181a1b;
-}
-
-body {
-  background-color: var(--background-color);
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem 0; 
-  font-weight: normal;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: var(--primary-text-color);
   background-color: var(--background-color);
 }

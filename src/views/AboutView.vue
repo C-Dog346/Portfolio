@@ -68,7 +68,7 @@ import technologies from "@/lib/data/technologies/technologies.json";
 }
 
 h1 {
-  margin: 0;
+  margin: 0rem;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
@@ -76,10 +76,6 @@ h1 {
 .imageCarousel {
   margin-top: 2rem;
   width: 100%;
-}
-
-h1 {
-  margin: 0rem;
 }
 
 .imageCarousel {

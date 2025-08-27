@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import CommonButton from '@/components/common/CommonButton.vue'
+import CommonButton from "@/components/common/CommonButton.vue";
 
 const scrollToAbout = () => {
-  const aboutSection = document.getElementById('about')
+  const aboutSection = document.getElementById("about");
   if (aboutSection) {
-    const navbarHeight = 80
-    const targetPosition = aboutSection.offsetTop - navbarHeight
+    const navbarHeight = 80;
+    const targetPosition = aboutSection.offsetTop - navbarHeight;
 
     window.scrollTo({
       top: targetPosition,
-      behavior: 'smooth'
-    })
+      behavior: "smooth"
+    });
   }
-}
+};
 </script>
 
 <template>
@@ -61,24 +61,5 @@ h1 {
   .home-container {
     padding: 1rem;
   }
-}
-
-.continue-button {
-  background-color: var(--border-color);
-  color: var(--text-color);
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  max-width: 100px;
-  margin: 2rem;
-  text-align: center;
-}
-.continue-button:hover {
-  background-color: var(--secondary-color);
-}
-.continue-text {
-  text-decoration: none;
-  color: var(--text-color);
 }
 </style>
