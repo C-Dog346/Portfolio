@@ -23,29 +23,29 @@ const updateActiveSection = (section: string) => {
     <div class="desktop">
       <a
         href="#home"
-        :class="['nav-link', { active: activeSection === 'home' }]"
-        :aria-current="activeSection === 'home' ? 'page' : undefined"
+        :class="['nav-link', { active: activeSection === 'Home' }]"
+        :aria-current="activeSection === 'Home' ? 'page' : undefined"
       >
         Home
       </a>
       <a
         href="#about"
-        :class="['nav-link', { active: activeSection === 'about' }]"
-        :aria-current="activeSection === 'about' ? 'page' : undefined"
+        :class="['nav-link', { active: activeSection === 'About' }]"
+        :aria-current="activeSection === 'About' ? 'page' : undefined"
       >
         About
       </a>
       <a
         href="#projects"
-        :class="['nav-link', { active: activeSection === 'projects' }]"
-        :aria-current="activeSection === 'projects' ? 'page' : undefined"
+        :class="['nav-link', { active: activeSection === 'Projects' }]"
+        :aria-current="activeSection === 'Projects' ? 'page' : undefined"
       >
         Projects
       </a>
       <a
         href="#contact"
-        :class="['nav-link', { active: activeSection === 'contact' }]"
-        :aria-current="activeSection === 'contact' ? 'page' : undefined"
+        :class="['nav-link', { active: activeSection === 'Contact' }]"
+        :aria-current="activeSection === 'Contact' ? 'page' : undefined"
       >
         Contact
       </a>
@@ -65,37 +65,38 @@ const updateActiveSection = (section: string) => {
       <div class="menu" v-if="isMenuOpen">
         <a
           href="#home"
-          :class="['nav-link', { active: activeSection === 'home' }]"
-          :aria-current="activeSection === 'home' ? 'page' : undefined"
+          :class="['nav-link', { active: activeSection === 'Home' }]"
+          :aria-current="activeSection === 'Home' ? 'page' : undefined"
           @click="updateActiveSection('home')"
         >
           Home
         </a>
         <a
           href="#about"
-          :class="['nav-link', { active: activeSection === 'about' }]"
-          :aria-current="activeSection === 'about' ? 'page' : undefined"
+          :class="['nav-link', { active: activeSection === 'About' }]"
+          :aria-current="activeSection === 'About' ? 'page' : undefined"
           @click="updateActiveSection('about')"
         >
           About
         </a>
         <a
           href="#projects"
-          :class="['nav-link', { active: activeSection === 'projects' }]"
-          :aria-current="activeSection === 'projects' ? 'page' : undefined"
+          :class="['nav-link', { active: activeSection === 'Projects' }]"
+          :aria-current="activeSection === 'Projects' ? 'page' : undefined"
           @click="updateActiveSection('projects')"
         >
           Projects
         </a>
         <a
           href="#contact"
-          :class="['nav-link', { active: activeSection === 'contact' }]"
-          :aria-current="activeSection === 'contact' ? 'page' : undefined"
+          :class="['nav-link', { active: activeSection === 'Contact' }]"
+          :aria-current="activeSection === 'Contact' ? 'page' : undefined"
           @click="updateActiveSection('contact')"
         >
           Contact
         </a>
       </div>
+      <div class="current-section" v-else>{{ activeSection }}</div>
     </div>
   </nav>
 </template>
@@ -166,6 +167,10 @@ const updateActiveSection = (section: string) => {
   margin: 2px;
 }
 
+.mobile {
+  display: none;
+}
+
 .hamburger.open .bar:nth-child(1) {
   transform: rotate(45deg) translateY(10px);
 }
@@ -178,8 +183,22 @@ const updateActiveSection = (section: string) => {
   transform: rotate(-45deg) translateY(-10px);
 }
 
-.mobile {
-  display: none;
+.current-section {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90px;
+  width: 100%;
+  color: var(--secondary-text-color);
+  background: rgba(139, 31, 31, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -201,6 +220,9 @@ const updateActiveSection = (section: string) => {
 
   .mobile {
     display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
   }
 }
 </style>
