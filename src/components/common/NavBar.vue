@@ -8,49 +8,42 @@ const props = defineProps<{
 const isMenuOpen = ref(false);
 const activeSection = toRef(props, "activeSection");
 
+const navItems = [
+  { href: "#home", label: "Home", section: "Home" },
+  { href: "#about", label: "About", section: "About" },
+  { href: "#projects", label: "Projects", section: "Projects" },
+  { href: "#contact", label: "Contact", section: "Contact" }
+];
+
 const toggleMenuOpen = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
-const updateActiveSection = (section: string) => {
+const closeMenu = () => {
   isMenuOpen.value = false;
-  activeSection.value = section;
 };
+
+const isActive = (section: string) => activeSection.value === section;
 </script>
 
 <template>
   <nav class="navbar" role="navigation">
+    <!-- Desktop Navigation -->
     <div class="desktop">
       <a
-        href="#home"
-        :class="['nav-link', { active: activeSection === 'Home' }]"
-        :aria-current="activeSection === 'Home' ? 'page' : undefined"
+        v-for="item in navItems"
+        :key="item.section"
+        :href="item.href"
+        :class="['nav-link', { active: isActive(item.section) }]"
+        :aria-current="isActive(item.section) ? 'page' : undefined"
       >
-        Home
-      </a>
-      <a
-        href="#about"
-        :class="['nav-link', { active: activeSection === 'About' }]"
-        :aria-current="activeSection === 'About' ? 'page' : undefined"
-      >
-        About
-      </a>
-      <a
-        href="#projects"
-        :class="['nav-link', { active: activeSection === 'Projects' }]"
-        :aria-current="activeSection === 'Projects' ? 'page' : undefined"
-      >
-        Projects
-      </a>
-      <a
-        href="#contact"
-        :class="['nav-link', { active: activeSection === 'Contact' }]"
-        :aria-current="activeSection === 'Contact' ? 'page' : undefined"
-      >
-        Contact
+        {{ item.label }}
       </a>
     </div>
+
+    <!-- Mobile Navigation -->
     <div class="mobile">
+      <div class="current-section">{{ activeSection }}</div>
       <button
         class="hamburger"
         :class="{ open: isMenuOpen }"
@@ -62,41 +55,21 @@ const updateActiveSection = (section: string) => {
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <div class="menu" v-if="isMenuOpen">
-        <a
-          href="#home"
-          :class="['nav-link', { active: activeSection === 'Home' }]"
-          :aria-current="activeSection === 'Home' ? 'page' : undefined"
-          @click="updateActiveSection('home')"
-        >
-          Home
-        </a>
-        <a
-          href="#about"
-          :class="['nav-link', { active: activeSection === 'About' }]"
-          :aria-current="activeSection === 'About' ? 'page' : undefined"
-          @click="updateActiveSection('about')"
-        >
-          About
-        </a>
-        <a
-          href="#projects"
-          :class="['nav-link', { active: activeSection === 'Projects' }]"
-          :aria-current="activeSection === 'Projects' ? 'page' : undefined"
-          @click="updateActiveSection('projects')"
-        >
-          Projects
-        </a>
-        <a
-          href="#contact"
-          :class="['nav-link', { active: activeSection === 'Contact' }]"
-          :aria-current="activeSection === 'Contact' ? 'page' : undefined"
-          @click="updateActiveSection('contact')"
-        >
-          Contact
-        </a>
-      </div>
-      <div class="current-section" v-else>{{ activeSection }}</div>
+
+      <Transition name="menu">
+        <div v-if="isMenuOpen" class="mobile-menu">
+          <a
+            v-for="item in navItems"
+            :key="item.section"
+            :href="item.href"
+            :class="['nav-link', { active: isActive(item.section) }]"
+            :aria-current="isActive(item.section) ? 'page' : undefined"
+            @click="closeMenu"
+          >
+            {{ item.label }}
+          </a>
+        </div>
+      </Transition>
     </div>
   </nav>
 </template>
@@ -114,9 +87,7 @@ const updateActiveSection = (section: string) => {
   background: rgba(24, 26, 27, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(169, 169, 169, 0.1);
-  transition:
-    all 0.3s ease,
-    padding 0.2s;
+  transition: all 0.3s ease;
 }
 
 .nav-link {
@@ -154,25 +125,26 @@ const updateActiveSection = (section: string) => {
 .hamburger {
   display: flex;
   flex-direction: column;
-  width: 60px;
-  height: 40px;
-}
-.bar {
-  width: 100%;
-  height: 4px;
-  background-color: grey;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  display: block;
-  margin: 2px;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-.mobile {
-  display: none;
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-text-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  margin: 3px 0;
 }
 
 .hamburger.open .bar:nth-child(1) {
-  transform: rotate(45deg) translateY(10px);
+  transform: rotate(45deg) translate(6px, 6px);
 }
 
 .hamburger.open .bar:nth-child(2) {
@@ -180,38 +152,76 @@ const updateActiveSection = (section: string) => {
 }
 
 .hamburger.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translateY(-10px);
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(24, 26, 27, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(169, 169, 169, 0.1);
+  min-width: 150px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+/* Vue Transition Classes */
+.menu-enter-active,
+.menu-leave-active {
+  transition: all 0.3s ease;
+}
+
+.menu-enter-from {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.menu-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.mobile-menu .nav-link {
+  display: block;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(169, 169, 169, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mobile-menu .nav-link:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu .nav-link.active {
+  color: var(--secondary-text-color);
+  background: rgba(139, 31, 31, 0.15);
 }
 
 .current-section {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 90px;
-  width: 100%;
   color: var(--secondary-text-color);
   background: rgba(139, 31, 31, 0.15);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  font-size: 1.5rem;
-  padding: 0.4rem 1rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  min-width: 80px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.mobile {
+  display: none;
+  position: relative;
 }
 
 @media (max-width: 768px) {
   .navbar {
-    gap: 1rem;
-    padding: 0.8rem 1rem;
-    height: 64px;
-    justify-content: start;
-  }
-
-  .nav-link {
-    font-size: 1.2rem;
-    padding: 0.4rem 0.8rem;
+    justify-content: flex-end;
+    padding: 1rem 1.5rem;
   }
 
   .desktop {
@@ -221,7 +231,7 @@ const updateActiveSection = (section: string) => {
   .mobile {
     display: flex;
     justify-content: space-between;
-    position: relative;
+    align-items: center;
     width: 100%;
   }
 }
