@@ -1,3 +1,17 @@
+<script setup lang="ts">
+const props = defineProps<{
+  type?: "button" | "submit" | "reset";
+  customClass?: string;
+  disabled?: boolean;
+}>();
+
+const emit = defineEmits(["click"]);
+
+function onClick(event: Event) {
+  emit("click", event);
+}
+</script>
+
 <template>
   <button
     :type="props.type || 'button'"
@@ -9,21 +23,6 @@
     <span class="label"><slot /></span>
   </button>
 </template>
-
-<script setup lang="ts">
-
-const props = defineProps<{
-  type?: 'button' | 'submit' | 'reset'
-  customClass?: string
-  disabled?: boolean
-}>()
-
-const emit = defineEmits(['click'])
-
-function onClick(event: Event) {
-  emit('click', event)
-}
-</script>
 
 <style scoped>
 .common-button {
@@ -42,7 +41,7 @@ function onClick(event: Event) {
 
 .common-button::before,
 .common-button::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   width: 100%;
@@ -68,7 +67,7 @@ function onClick(event: Event) {
 }
 .fills-x::before,
 .fills-x::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   height: 100%;

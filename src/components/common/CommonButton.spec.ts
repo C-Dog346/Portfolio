@@ -13,8 +13,33 @@ describe("CommonButton", () => {
     });
 
     expect(wrapper.find("button").exists()).toBe(true);
-    expect(wrapper.find("button").attributes("type")).toBe("button"); // Default type
-    expect(wrapper.text()).toContain(slotContent); // Slot content appears
-    expect(wrapper.find("button").classes()).toContain("common-button"); // Has CSS class
+    expect(wrapper.find("button").attributes("type")).toBe("button");
+    expect(wrapper.text()).toContain(slotContent);
+    expect(wrapper.find("button").classes()).toContain("common-button");
+  });
+
+  it("renders button with custom type and additional classes", () => {
+    const wrapper = mount(CommonButton, {
+      props: {
+        type: "submit",
+        class: "custom-class"
+      }
+    });
+
+    expect(wrapper.find("button").exists()).toBe(true);
+    expect(wrapper.find("button").attributes("type")).toBe("submit");
+    expect(wrapper.find("button").classes()).toContain("custom-class");
+  });
+
+  it("renders disabled button", () => {
+    const wrapper = mount(CommonButton, {
+      props: {
+        disabled: true
+      }
+    });
+
+    expect(wrapper.find("button").exists()).toBe(true);
+    expect(wrapper.find("button").attributes("disabled")).toBeDefined();
+    expect(wrapper.find("button").element.disabled).toBe(true);
   });
 });
