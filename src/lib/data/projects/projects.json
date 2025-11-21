@@ -19,5 +19,12 @@
     "image": "/Portfolio/data/projects/IslandsProject.png",
     "description": "This is a project that I made for the islands challenge issued to me during a job interview.",
     "github": "https://github.com/C-Dog346/Islands-Challenge"
+  },
+  {
+    "id": 4,
+    "name": "DuoHelper Tool",
+    "image": "/Portfolio/data/projects/DuoHelperCode.png",
+    "description": "A tool written in Go to alert the user if they have not completed their daily Duolingo lesson.",
+    "github": "https://github.com/C-Dog346/DuoHelper"
   }
 ]
