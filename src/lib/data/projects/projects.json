@@ -23,7 +23,7 @@
   {
     "id": 4,
     "name": "DuoHelper Tool",
-    "image": "/Portfolio/data/projects/DuoHelperCode.png",
+    "image": "/Portfolio/data/projects/DuoHelperTool.png",
     "description": "A tool written in Go to alert the user if they have not completed their daily Duolingo lesson.",
     "github": "https://github.com/C-Dog346/DuoHelper"
   }
