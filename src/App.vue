@@ -14,7 +14,7 @@ const updateActiveSection = () => {
 
   for (const sectionId of sections) {
     const element = document.getElementById(sectionId.toLowerCase());
-    if (element) {
+    if (element) {  
       const sectionTop = element.offsetTop;
       const sectionBottom = sectionTop + element.offsetHeight;
 
